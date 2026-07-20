@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sydney · Reef · Melbourne — 13 Nights</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..700&family=Spline+Sans:wght@300..700&family=Spline+Sans+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1b2a38;
+    --ink-soft:#33475a;
+    --paper:#f4efe4;
+    --sand:#e6d9bf;
+    --sand-deep:#d9c8a4;
+    --euc:#4f6f57;
+    --euc-deep:#3a5541;
+    --clay:#bf5a3c;
+    --clay-deep:#9e4529;
+    --line:rgba(27,42,56,.16);
+    --line-strong:rgba(27,42,56,.32);
+    --shadow:24px 24px 0 rgba(27,42,56,.06);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Spline Sans",system-ui,sans-serif;
+    font-weight:350;
+    line-height:1.62;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+    overflow-x:hidden;
+  }
+  .wrap{max-width:1080px;margin:0 auto;padding:0 28px}
+  .mono{font-family:"Spline Sans Mono",monospace;font-weight:500;letter-spacing:.02em}
+  .eyebrow{
+    font-family:"Spline Sans Mono",monospace;
+    font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;
+    color:var(--clay-deep);font-weight:600;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{position:relative;padding:64px 0 40px;overflow:hidden}
+  .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:end}
+  .hero h1{
+    font-family:"Fraunces",serif;
+    font-optical-sizing:144;
+    font-weight:600;
+    font-size:clamp(3.1rem,8vw,6.4rem);
+    line-height:.92;
+    letter-spacing:-.02em;
+    margin:18px 0 26px;
+  }
+  .hero h1 em{font-style:italic;font-weight:400;color:var(--euc-deep)}
+  .hero .lede{font-size:1.12rem;max-width:44ch;color:var(--ink-soft)}
+  .hero .facts{
+    display:flex;flex-wrap:wrap;gap:0;margin-top:30px;
+    border-top:1.5px solid var(--line-strong);
+  }
+  .fact{padding:16px 26px 16px 0;margin-right:26px;border-right:1px solid var(--line)}
+  .fact:last-child{border-right:none}
+  .fact .n{font-family:"Fraunces",serif;font-size:2rem;font-weight:600;line-height:1;display:block}
+  .fact .l{font-family:"Spline Sans Mono",monospace;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin-top:6px}
+
+  /* horizon illustration in hero */
+  .horizon{width:100%;height:auto;display:block;filter:drop-shadow(10px 12px 0 rgba(27,42,56,.05))}
+
+  /* ---------- ROUTE STRIP ---------- */
+  .routestrip{
+    background:var(--ink);color:var(--paper);
+    margin-top:44px;border-radius:2px;
+    padding:30px 34px;
+    display:grid;grid-template-columns:repeat(3,1fr);gap:0;
+    position:relative;
+  }
+  .leg{padding:0 26px;position:relative}
+  .leg:not(:last-child)::after{
+    content:"";position:absolute;right:0;top:6px;bottom:6px;width:1px;
+    background:rgba(244,239,228,.22);
+  }
+  .leg .place{font-family:"Fraunces",serif;font-size:1.5rem;font-weight:600;line-height:1.05}
+  .leg .dates{font-family:"Spline Sans Mono",monospace;font-size:.74rem;letter-spacing:.06em;color:var(--sand);margin-top:8px}
+  .leg .move{
+    display:inline-flex;align-items:center;gap:7px;margin-top:14px;
+    font-family:"Spline Sans Mono",monospace;font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--paper);opacity:.7;
+  }
+  .leg .move svg{width:26px;height:12px}
+
+  /* ---------- SECTION SHELL ---------- */
+  section.region{padding:76px 0 8px;position:relative}
+  .region-head{display:grid;grid-template-columns:auto 1fr;gap:26px;align-items:start;margin-bottom:8px}
+  .region-num{
+    font-family:"Fraunces",serif;font-weight:300;font-size:clamp(3rem,7vw,5.2rem);
+    line-height:.8;color:var(--sand-deep);font-style:italic;
+  }
+  .region-title h2{
+    font-family:"Fraunces",serif;font-weight:600;font-size:clamp(2rem,4.4vw,3rem);
+    line-height:1;letter-spacing:-.01em;
+  }
+  .region-title .sub{margin-top:12px;color:var(--ink-soft);max-width:60ch;font-size:1.04rem}
+  .tag{
+    display:inline-block;font-family:"Spline Sans Mono",monospace;
+    font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;
+    padding:5px 11px;border:1.5px solid currentColor;border-radius:100px;margin-top:16px;
+  }
+  .tag.euc{color:var(--euc-deep)}
+  .tag.clay{color:var(--clay-deep)}
+  .tag.sea{color:#2f6b7a}
+
+  /* scene illustration band */
+  .scene{margin:34px 0 10px;border:1.5px solid var(--line-strong);border-radius:2px;overflow:hidden;background:var(--sand)}
+  .scene svg{display:block;width:100%;height:auto}
+
+  /* ---------- DAY CARDS ---------- */
+  .days{margin-top:38px;position:relative}
+  .day{
+    display:grid;grid-template-columns:132px 1fr;gap:0;
+    border-top:1px solid var(--line);
+    padding:26px 0;
+  }
+  .day:last-child{border-bottom:1px solid var(--line)}
+  .day-key{padding-right:24px;border-right:2px solid var(--sand-deep)}
+  .day-key .date{font-family:"Fraunces",serif;font-weight:600;font-size:1.35rem;line-height:1}
+  .day-key .dow{font-family:"Spline Sans Mono",monospace;font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--clay-deep);margin-top:7px}
+  .day-key .sleep{
+    margin-top:16px;font-family:"Spline Sans Mono",monospace;font-size:.66rem;
+    letter-spacing:.04em;color:var(--ink-soft);display:flex;align-items:center;gap:6px;
+  }
+  .day-key .sleep svg{width:13px;height:13px;flex:none}
+  .day-body{padding-left:28px}
+  .day-body h3{font-family:"Fraunces",serif;font-weight:600;font-size:1.32rem;line-height:1.1;margin-bottom:10px}
+  .day-body h3 .pin{color:var(--clay);font-style:italic;font-weight:400}
+  .day-body p{color:var(--ink-soft);font-size:1rem;margin-bottom:12px}
+  .day-body p:last-child{margin-bottom:0}
+  .doing{
+    list-style:none;display:flex;flex-direction:column;gap:9px;margin:4px 0 2px;
+  }
+  .doing li{
+    position:relative;padding-left:26px;font-size:.98rem;color:var(--ink);
+  }
+  .doing li::before{
+    content:"";position:absolute;left:0;top:.55em;width:12px;height:1.5px;background:var(--euc);
+  }
+  .note{
+    margin-top:14px;padding:13px 16px;background:rgba(79,111,87,.09);
+    border-left:3px solid var(--euc);font-size:.92rem;color:var(--euc-deep);border-radius:0 2px 2px 0;
+  }
+  .note.book{background:rgba(191,90,60,.09);border-left-color:var(--clay);color:var(--clay-deep)}
+  .note b{font-weight:600}
+
+  /* ---------- STAY / LOGISTICS PANELS ---------- */
+  .panel{
+    margin:30px 0 0;border:1.5px solid var(--line-strong);border-radius:2px;
+    padding:26px 28px;background:rgba(230,217,191,.35);
+  }
+  .panel h4{
+    font-family:"Spline Sans Mono",monospace;font-size:.72rem;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--clay-deep);margin-bottom:16px;font-weight:600;
+  }
+  .stay-row{display:grid;grid-template-columns:auto 1fr;gap:16px;padding:11px 0;border-top:1px dashed var(--line)}
+  .stay-row:first-of-type{border-top:none}
+  .stay-row .town{font-family:"Fraunces",serif;font-weight:600;font-size:1.06rem;white-space:nowrap}
+  .stay-row .town small{display:block;font-family:"Spline Sans Mono",monospace;font-size:.62rem;letter-spacing:.1em;color:var(--ink-soft);font-weight:400;margin-top:3px;text-transform:uppercase}
+  .stay-row .desc{font-size:.94rem;color:var(--ink-soft)}
+  .stay-row .desc b{color:var(--ink);font-weight:600}
+
+  /* ---------- FEATURE ROWS (activity spotlights) ---------- */
+  .spot{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:30px;border:1.5px solid var(--line-strong);border-radius:2px;overflow:hidden}
+  .spot .art{background:var(--ink);display:flex;align-items:stretch}
+  .spot .art svg{width:100%;height:100%;display:block}
+  .spot .txt{padding:28px 30px}
+  .spot .txt .eyebrow{margin-bottom:10px}
+  .spot .txt h4{font-family:"Fraunces",serif;font-weight:600;font-size:1.5rem;line-height:1.05;margin-bottom:12px}
+  .spot .txt p{color:var(--ink-soft);font-size:.98rem;margin-bottom:12px}
+  .compare{display:flex;gap:22px;margin-top:6px}
+  .compare>div{flex:1}
+  .compare .name{font-family:"Fraunces",serif;font-weight:600;font-size:1.05rem}
+  .compare .meta{font-family:"Spline Sans Mono",monospace;font-size:.68rem;color:var(--ink-soft);margin-top:5px;line-height:1.5}
+
+  /* ---------- CLOSING ---------- */
+  .closing{padding:72px 0 90px}
+  .closing .rule{height:1.5px;background:var(--line-strong);margin-bottom:40px}
+  .closing h2{font-family:"Fraunces",serif;font-weight:500;font-style:italic;font-size:clamp(1.7rem,4vw,2.6rem);line-height:1.12;max-width:24ch;margin-bottom:26px}
+  .checklist{display:grid;grid-template-columns:1fr 1fr;gap:14px 40px;margin-top:10px}
+  .checklist div{display:flex;gap:12px;align-items:flex-start;font-size:.97rem;color:var(--ink-soft);padding:11px 0;border-top:1px solid var(--line)}
+  .checklist svg{width:16px;height:16px;flex:none;margin-top:3px;color:var(--euc)}
+  .checklist b{color:var(--ink);font-weight:600}
+  footer{padding:30px 0 60px;border-top:1.5px solid var(--line-strong)}
+  footer .mono{font-size:.72rem;letter-spacing:.1em;color:var(--ink-soft);text-transform:uppercase}
+
+  /* ---------- responsive ---------- */
+  @media(max-width:860px){
+    .hero-grid{grid-template-columns:1fr;gap:24px}
+    .hero .hero-art{order:-1}
+    .routestrip{grid-template-columns:1fr;gap:0;padding:14px 24px}
+    .leg{padding:20px 0;border-bottom:1px solid rgba(244,239,228,.2)}
+    .leg:last-child{border-bottom:none}
+    .leg:not(:last-child)::after{display:none}
+    .spot{grid-template-columns:1fr}
+    .spot .art{min-height:200px}
+    .checklist{grid-template-columns:1fr}
+  }
+  @media(max-width:620px){
+    .wrap{padding:0 20px}
+    .region-head{grid-template-columns:1fr;gap:8px}
+    .region-num{font-size:2.6rem}
+    .day{grid-template-columns:1fr}
+    .day-key{border-right:none;border-bottom:2px solid var(--sand-deep);padding:0 0 14px;margin-bottom:16px;display:flex;gap:18px;align-items:baseline;flex-wrap:wrap}
+    .day-key .sleep{margin-top:0}
+    .day-body{padding-left:0}
+    .fact{padding:12px 16px 12px 0;margin-right:16px}
+    .compare{flex-direction:column;gap:14px}
+  }
+  @media(prefers-reduced-motion:no-preference){
+    .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+    .reveal.in{opacity:1;transform:none}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">Two of us · Rental car · Spring in the south</span>
+      <h1>Sydney,<br>the <em>Reef</em>,<br>&amp; the long<br>coast south.</h1>
+      <p class="lede">Thirteen nights across three worlds — a harbour city, the tropical north, and the wild Victorian coast — with the driving saved for the roads that are worth it.</p>
+      <div class="facts">
+        <div class="fact"><span class="n">13</span><span class="l">Nights</span></div>
+        <div class="fact"><span class="n">3</span><span class="l">Regions</span></div>
+        <div class="fact"><span class="n">2</span><span class="l">Flights within AU</span></div>
+        <div class="fact"><span class="n">Oct 3–16</span><span class="l">On the ground</span></div>
+      </div>
+    </div>
+    <div class="hero-art">
+      <!-- Custom horizon illustration: reef -> harbour -> cliffs -->
+      <svg class="horizon" viewBox="0 0 420 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Stylised Australian coastline from reef to southern cliffs">
+        <defs>
+          <clipPath id="round"><rect x="0" y="0" width="420" height="380" rx="3"/></clipPath>
+        </defs>
+        <g clip-path="url(#round)">
+          <rect width="420" height="380" fill="#1b2a38"/>
+          <!-- sky wash -->
+          <rect width="420" height="230" fill="#24384a"/>
+          <!-- sun -->
+          <circle cx="316" cy="92" r="34" fill="#bf5a3c"/>
+          <circle cx="316" cy="92" r="34" fill="none" stroke="#d9c8a4" stroke-width="1" opacity="0.5"/>
+          <!-- distant headland (cliffs, south) -->
+          <path d="M0 168 Q 60 150 120 166 T 250 158 Q 320 150 420 172 L420 230 L0 230 Z" fill="#33475a"/>
+          <!-- opera-house sails silhouette, centre -->
+          <g fill="#e6d9bf">
+            <path d="M188 168 q10 -34 26 -34 q-6 20 -2 34 z"/>
+            <path d="M206 168 q10 -40 28 -38 q-8 22 -2 38 z"/>
+            <path d="M226 168 q9 -30 24 -30 q-6 18 -1 30 z"/>
+          </g>
+          <!-- bridge arch -->
+          <path d="M150 168 Q 180 132 214 132 Q 248 132 278 168" fill="none" stroke="#d9c8a4" stroke-width="3"/>
+          <line x1="150" y1="168" x2="150" y2="150" stroke="#d9c8a4" stroke-width="3"/>
+          <line x1="278" y1="168" x2="278" y2="150" stroke="#d9c8a4" stroke-width="3"/>
+          <!-- water -->
+          <rect y="230" width="420" height="150" fill="#2f5560"/>
+          <path d="M0 230 h420 v20 h-420 z" fill="#356672" opacity="0.6"/>
+          <!-- reef / coral below waterline -->
+          <g opacity="0.92">
+            <path d="M40 372 q6 -40 18 -42 q4 20 0 42 z" fill="#4f6f57"/>
+            <path d="M58 372 q4 -28 14 -30 q3 16 2 30 z" fill="#5a7a5a"/>
+            <path d="M300 372 q8 -46 22 -48 q5 24 -1 48 z" fill="#bf5a3c"/>
+            <path d="M322 372 q5 -30 16 -32 q4 18 1 32 z" fill="#9e4529"/>
+            <circle cx="150" cy="352" r="7" fill="#e6d9bf"/>
+            <circle cx="168" cy="360" r="4" fill="#d9c8a4"/>
+            <circle cx="230" cy="356" r="5" fill="#e6d9bf"/>
+            <!-- little fish -->
+            <path d="M120 300 l10 -5 v10 z" fill="#d9c8a4"/>
+            <path d="M250 320 l9 -4 v8 z" fill="#bf5a3c"/>
+            <path d="M200 288 l8 -4 v8 z" fill="#e6d9bf"/>
+          </g>
+          <!-- gull -->
+          <path d="M70 96 q10 -8 20 0 q10 -8 20 0" fill="none" stroke="#e6d9bf" stroke-width="2"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+
+  <!-- ROUTE STRIP -->
+  <div class="wrap">
+    <div class="routestrip">
+      <div class="leg">
+        <div class="place">Sydney</div>
+        <div class="dates">OCT 3 — OCT 6 · 3 nights</div>
+        <div class="move">
+          <svg viewBox="0 0 26 12"><path d="M1 6h20m0 0l-5-4m5 4l-5 4" stroke="#f4efe4" stroke-width="1.4" fill="none"/></svg>
+          Then fly north
+        </div>
+      </div>
+      <div class="leg">
+        <div class="place">Port Douglas</div>
+        <div class="dates">OCT 6 — OCT 11 · 5 nights</div>
+        <div class="move">
+          <svg viewBox="0 0 26 12"><path d="M1 6h20m0 0l-5-4m5 4l-5 4" stroke="#f4efe4" stroke-width="1.4" fill="none"/></svg>
+          Then fly south
+        </div>
+      </div>
+      <div class="leg">
+        <div class="place">Melbourne &amp; the Coast</div>
+        <div class="dates">OCT 11 — OCT 16 · 5 nights</div>
+        <div class="move">
+          <svg viewBox="0 0 26 12"><path d="M1 6h20" stroke="#bf5a3c" stroke-width="1.4" fill="none"/><circle cx="23" cy="6" r="2.4" fill="#bf5a3c"/></svg>
+          Fly home
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ ARRIVAL NOTE ============ -->
+<div class="wrap">
+  <div class="panel reveal" style="margin-top:44px">
+    <h4>Before you read on — one date thing</h4>
+    <p style="color:var(--ink-soft);font-size:1rem">Your outbound leaves Phoenix <b style="color:var(--ink)">Thu Oct 1</b> but lands in Sydney <b style="color:var(--ink)">Sat Oct 3, 6:50 am</b> — the international date line eats a day. So the plan below starts Oct 3, and treats that first morning as a gentle, jet-lagged arrival rather than a sightseeing day. Your flight home is out of <b style="color:var(--ink)">Melbourne, 11:00 am</b>, so the whole trip is built to end there. Since you're adding a few days, this runs to <b style="color:var(--ink)">Oct 16</b> — lock in the new award return before booking rooms, as reward seats on the date can be tight.</p>
+  </div>
+</div>
+
+<!-- ============ REGION 1: SYDNEY ============ -->
+<section class="region" id="sydney">
+  <div class="wrap">
+    <div class="region-head reveal">
+      <div class="region-num">01</div>
+      <div class="region-title">
+        <h2>Sydney</h2>
+        <p class="sub">Ease into the trip on the harbour. No car here — the city runs on ferries and your own two feet, and parking is a tax on the foolish. Base yourself in The Rocks or Circular Quay.</p>
+        <span class="tag sea">Harbour city · 3 nights · no car</span>
+      </div>
+    </div>
+
+    <!-- Sydney scene -->
+    <div class="scene reveal">
+      <svg viewBox="0 0 1080 210" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Sydney harbour skyline illustration">
+        <rect width="1080" height="210" fill="#e6d9bf"/>
+        <rect width="1080" height="150" fill="#ece2cd"/>
+        <!-- water -->
+        <rect y="150" width="1080" height="60" fill="#7fa6ad"/>
+        <path d="M0 150 h1080 v10 H0 z" fill="#6b959d"/>
+        <!-- bridge -->
+        <g>
+          <path d="M120 150 Q 250 40 400 40 Q 550 40 680 150" fill="none" stroke="#1b2a38" stroke-width="6"/>
+          <line x1="120" y1="150" x2="120" y2="70" stroke="#1b2a38" stroke-width="6"/>
+          <line x1="680" y1="150" x2="680" y2="70" stroke="#1b2a38" stroke-width="6"/>
+          <line x1="120" y1="150" x2="680" y2="150" stroke="#1b2a38" stroke-width="7"/>
+          <g stroke="#1b2a38" stroke-width="2">
+            <line x1="200" y1="150" x2="220" y2="72"/><line x1="280" y1="150" x2="290" y2="53"/>
+            <line x1="400" y1="150" x2="400" y2="40"/><line x1="520" y1="150" x2="510" y2="53"/>
+            <line x1="600" y1="150" x2="580" y2="72"/>
+          </g>
+        </g>
+        <!-- opera house -->
+        <g fill="#f4efe4" stroke="#1b2a38" stroke-width="2.5">
+          <path d="M760 150 q22 -70 56 -70 q-14 40 -4 70 z"/>
+          <path d="M800 150 q24 -84 62 -80 q-16 46 -4 80 z"/>
+          <path d="M846 150 q20 -60 52 -58 q-13 34 -3 58 z"/>
+          <path d="M884 150 q16 -44 42 -42 q-10 26 -2 42 z"/>
+        </g>
+        <line x1="740" y1="150" x2="940" y2="150" stroke="#1b2a38" stroke-width="3"/>
+        <!-- little ferry -->
+        <g transform="translate(470,168)">
+          <path d="M0 0 h60 l-8 16 h-44 z" fill="#bf5a3c"/>
+          <rect x="12" y="-10" width="34" height="10" fill="#f4efe4"/>
+        </g>
+        <!-- sun -->
+        <circle cx="980" cy="56" r="26" fill="#bf5a3c" opacity="0.85"/>
+      </svg>
+    </div>
+
+    <div class="days">
+      <div class="day reveal">
+        <div class="day-key">
+          <div class="date">Oct 3</div>
+          <div class="dow">Saturday</div>
+          <div class="sleep"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-5h6v5"/></svg>Sydney</div>
+        </div>
+        <div class="day-body">
+          <h3>Land, then let the harbour wake you up</h3>
+          <p>You're off a brutal flight, so keep it loose. Drop bags (rooms rarely open before mid-afternoon — arrange left-luggage), then do the one walk that fixes jet lag: the harbour foreshore.</p>
+          <ul class="doing">
+            <li>Royal Botanic Garden through to Mrs Macquarie's Point for the postcard Opera House + Bridge line-up</li>
+            <li>Loop back through Circular Quay to The Rocks for an early, easy dinner</li>
+          </ul>
+          <div class="note">Fight the long afternoon nap. Push to a normal bedtime and the rest of the trip's body-clock sorts itself out.</div>
+        </div>
+      </div>
+
+      <div class="day reveal">
+        <div class="day-key">
+          <div class="date">Oct 4</div>
+          <div class="dow">Sunday</div>
+          <div class="sleep"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-5h6v5"/></svg>Sydney</div>
+        </div>
+        <div class="day-body">
+          <h3>The <span class="pin">Manly</span> ferry, then a slow city afternoon</h3>
+          <p>Pick one big outing, not two — cramming Manly and the Bondi-to-Coogee walk into one day turns a holiday into a forced march. The ferry ride itself is half the reason to go north.</p>
+          <ul class="doing">
+            <li>Morning: ferry from Circular Quay to Manly, walk to Shelly Beach, lunch by the water</li>
+            <li>Afternoon: back across the harbour, wander Barangaroo or Surry Hills at your own pace</li>
+          </ul>
+          <div class="note">Saving Bondi–Coogee? It keeps. Swap it in for Manly if you'd rather have the cliff walk — but don't try to do both.</div>
+        </div>
+      </div>
+
+      <div class="day reveal">
+        <div class="day-key">
+          <div class="date">Oct 5</div>
+          <div class="dow">Monday</div>
+          <div class="sleep"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-5h6v5"/></svg>Sydney</div>
+        </div>
+        <div class="day-body">
+          <h3>Blue Mountains — hire a car for the day</h3>
+          <p>The Grand Canyon Track is a stunning 6.3 km rainforest loop (~3–4 hrs) — but it's at Blackheath, not Katoomba, and stitching it to the Three Sisters by train alone is a headache. A one-day car rental (or a small-group tour) unlocks the whole plateau.</p>
+          <ul class="doing">
+            <li>Early start · Grand Canyon Track loop from Evans Lookout in the morning</li>
+            <li>Lunch in Blackheath or Leura</li>
+            <li>Three Sisters at Echo Point, and a section of the Prince Henry Cliff Walk</li>
+          </ul>
+          <div class="note book"><b>Check before you go:</b> Blue Mountains tracks can close for weather, fire danger or maintenance. Look at the official NSW alerts the week prior.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REGION 2: THE REEF ============ -->
+<section class="region" id="reef">
+  <div class="wrap">
+    <div class="region-head reveal">
+      <div class="region-num">02</div>
+      <div class="region-title">
+        <h2>Port Douglas &amp; the Reef</h2>
+        <p class="sub">The likely highlight. Fly into Cairns, drive the pretty hour north to Port Douglas, and settle in for five nights — close to the best outer reef and the oldest rainforest on earth. One base, no repacking.</p>
+        <span class="tag sea">Tropical north · 5 nights · reef + rainforest</span>
+      </div>
+    </div>
+
+    <!-- Reef scene: above + below waterline -->
+    <div class="scene reveal">
+      <svg viewBox="0 0 1080 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Great Barrier Reef above and below the waterline">
+        <rect width="1080" height="260" fill="#2f5560"/>
+        <!-- sky -->
+        <rect width="1080" height="86" fill="#cfe0dd"/>
+        <circle cx="120" cy="46" r="24" fill="#bf5a3c" opacity="0.85"/>
+        <!-- boat -->
+        <g transform="translate(700,50)">
+          <path d="M0 30 h120 l-16 20 H16 z" fill="#f4efe4" stroke="#1b2a38" stroke-width="2"/>
+          <rect x="30" y="10" width="60" height="22" fill="#7fa6ad" stroke="#1b2a38" stroke-width="2"/>
+        </g>
+        <!-- waterline -->
+        <path d="M0 86 h1080 v6 H0 z" fill="#255059"/>
+        <!-- caustic light rays -->
+        <g stroke="#5c8790" stroke-width="14" opacity="0.35" stroke-linecap="round">
+          <line x1="200" y1="92" x2="150" y2="240"/><line x1="420" y1="92" x2="470" y2="240"/>
+          <line x1="820" y1="92" x2="770" y2="240"/>
+        </g>
+        <!-- coral bommies -->
+        <g>
+          <path d="M60 260 q14 -74 40 -78 q10 40 0 78 z" fill="#4f6f57"/>
+          <path d="M96 260 q10 -54 30 -58 q7 30 3 58 z" fill="#5a7a5a"/>
+          <path d="M900 260 q18 -90 46 -94 q11 46 -2 94 z" fill="#bf5a3c"/>
+          <path d="M938 260 q11 -58 32 -62 q8 32 2 62 z" fill="#9e4529"/>
+          <!-- brain corals -->
+          <circle cx="300" cy="234" r="24" fill="#c98a5e"/>
+          <circle cx="300" cy="234" r="24" fill="none" stroke="#8a5a34" stroke-width="2" stroke-dasharray="3 4"/>
+          <circle cx="560" cy="246" r="18" fill="#e6d9bf"/>
+          <!-- fan -->
+          <path d="M660 260 q-30 -40 -8 -74 q30 26 16 74 z" fill="#d98b6a" opacity="0.9"/>
+        </g>
+        <!-- fish -->
+        <g>
+          <g transform="translate(420,150)"><path d="M0 0 q14 -9 30 0 q-14 9 -30 0z" fill="#e6d9bf"/><path d="M30 0 l10 -6 v12 z" fill="#e6d9bf"/></g>
+          <g transform="translate(500,180)"><path d="M0 0 q10 -7 22 0 q-10 7 -22 0z" fill="#bf5a3c"/><path d="M22 0 l8 -5 v10 z" fill="#bf5a3c"/></g>
+          <g transform="translate(360,120)"><path d="M0 0 q9 -6 20 0 q-9 6 -20 0z" fill="#d9c8a4"/><path d="M20 0 l7 -4 v8 z" fill="#d9c8a4"/></g>
+        </g>
+        <!-- turtle -->
+        <g transform="translate(760,170)">
+          <ellipse cx="0" cy="0" rx="30" ry="20" fill="#4f6f57" stroke="#2f4a37" stroke-width="2"/>
+          <circle cx="30" cy="-4" r="7" fill="#4f6f57"/>
+          <path d="M-26 -12 l-14 -8 M-26 12 l-14 8 M20 16 l8 12" stroke="#4f6f57" stroke-width="6" stroke-linecap="round"/>
+          <path d="M-10 -6 l6 6 -6 6 M4 -8 l6 8 -6 8" stroke="#2f4a37" stroke-width="1.5" fill="none"/>
+        </g>
+      </svg>
+    </div>
+
+    <div class="days">
+      <div class="day reveal">
+        <div class="day-key">
+          <div class="date">Oct 6</div><div class="dow">Tuesday</div>
+          <div class="sleep"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-5h6v5"/></svg>Port Douglas</div>
+        </div>
+        <div class="day-body">
+          <h3>Fly to Cairns, drive to <span class="pin">Port Douglas</span></h3>
+          <p>Pick up the car at Cairns airport and take the coast road north — one of the prettiest hours of driving in the country, rainforest on one side, Coral Sea on the other.</p>
+          <ul class="doing">
+            <li>Quick stop at Palm Cove if the timing's right</li>
+            <li>Settle in; sunset and dinner on Macrossan Street</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="day reveal">
+        <div class="day-key">
+          <div class="date">Oct 7</div><div class="dow">Wednesday</div>
+          <div class="sleep"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-5h6v5"/></svg>Port Douglas</div>
+        </div>
+        <div class="day-body">
+          <h3>Outer Great Barrier Reef — the big one</h3>
+          <p>Book the reef on your <b>first</b> full day so the later days stay open as weather backups. Go with a snorkel-focused operator running small groups to the outer reef.</p>
+          <div class="note book"><b>Book now, not there:</b> October is peak season and the good boats sell out. Secure the outer-reef day in advance; decide on any second water day once you're there.</div>
+        </div>
+      </div>
+
+      <!-- reef operator spotlight -->
+      <div class="spot reveal">
+        <div class="art">
+          <svg viewBox="0 0 300 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Snorkeler over the reef">
+            <rect width="300" height="320" fill="#255059"/>
+            <g stroke="#3a6b74" stroke-width="20" opacity="0.4" stroke-linecap="round">
+              <line x1="70" y1="0" x2="40" y2="320"/><line x1="180" y1="0" x2="210" y2="320"/><line x1="260" y1="0" x2="240" y2="320"/>
+            </g>
+            <!-- snorkeler -->
+            <g transform="translate(150,120)">
+              <ellipse cx="0" cy="0" rx="66" ry="26" fill="none" stroke="#e6d9bf" stroke-width="4"/>
+              <circle cx="-40" cy="-4" r="14" fill="#e6d9bf"/>
+              <rect x="-52" y="-8" width="16" height="8" rx="2" fill="#1b2a38"/>
+              <path d="M-40 10 q40 4 78 -2" stroke="#e6d9bf" stroke-width="5" fill="none"/>
+              <path d="M40 6 l24 12 -6 6 z" fill="#bf5a3c"/>
+            </g>
+            <!-- coral base -->
+            <path d="M0 320 q30 -70 70 -74 q18 40 6 74 z" fill="#4f6f57"/>
+            <path d="M230 320 q30 -84 74 -88 q18 46 4 88 z" fill="#bf5a3c"/>
+            <circle cx="150" cy="286" r="20" fill="#c98a5e"/>
+            <g fill="#d9c8a4">
+              <path d="M96 232 q10 -6 22 0 q-10 6 -22 0z"/><path d="M200 210 q9 -5 20 0 q-9 5 -20 0z"/>
+            </g>
+          </svg>
+        </div>
+        <div class="txt">
+          <span class="eyebrow">Choosing your boat</span>
+          <h4>Two snorkel-first operators worth comparing</h4>
+          <p>Both skip scuba to focus on snorkeling and small groups. Compare boat size, number of reef stops, guided snorkeling, the cancellation policy, and whether they offer prescription masks and flotation help.</p>
+          <div class="compare">
+            <div>
+              <div class="name">Wavelength</div>
+              <div class="meta">Marine-biologist guides<br>Outer reef · reef interpretation<br>Strong all-rounder</div>
+            </div>
+            <div>
+              <div class="name">ABC Reef Safaris</div>
+              <div class="meta">Very small passenger count<br>More intimate, pricier<br>Check availability early</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="day reveal">
+        <div class="day-key">
+          <div class="date">Oct 8</div><div class="dow">Thursday</div>
+          <div class="sleep"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-5h6v5"/></svg>Port Douglas</div>
+        </div>
+        <div class="day-body">
+          <h3><span class="pin">Daintree</span> &amp; Cape Tribulation</h3>
+          <p>Give the rainforest the whole day — it's the oldest on the planet, and the one place where reef meets jungle at the shoreline.</p>
+          <ul class="doing">
+            <li>Mossman Gorge · the Daintree ferry · rainforest boardwalks · Cape Tribulation</li>
+          </ul>
+          <div class="note">Start early and skip a late-evening plan afterward — tropical roads after dark aren't fun, and wildlife wanders onto them.</div>
+        </div>
+      </div>
+
+      <div class="day reveal">
+        <div class="day-key">
+          <div class="date">Oct 9</div><div class="dow">Friday</div>
+          <div class="sleep"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-5h6v5"/></svg>Port Douglas</div>
+        </div>
+        <div class="day-body">
+          <h3>Atherton Tablelands — waterfall country</h3>
+          <p>The one long-driving day inland (~4+ hrs total behind the wheel), but the payoff is exactly your kind of thing: a string of waterfalls and freshwater swimming holes, cool and green.</p>
+          <ul class="doing">
+            <li>Curtain Fig Tree · Yungaburra · Lake Eacham · Millaa Millaa Falls · a waterfall stop or two more</li>
+          </ul>
+          <div class="note">Worth the drive if swimming under waterfalls sounds good. If you'd rather bank a slow day, this is the one to trade for a beach day instead.</div>
+        </div>
+      </div>
+
+      <div class="day reveal">
+        <div class="day-key">
+          <div class="date">Oct 10</div><div class="dow">Saturday</div>
+          <div class="sleep"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-5h6v5"/></svg>Port Douglas</div>
+        </div>
+        <div class="day-body">
+          <h3>Flex day — reef again, or do nothing at all</h3>
+          <p>Keep this open on purpose. Use it as your weather backup for the reef, or a second, gentler water day, or simply Four Mile Beach and the pool.</p>
+          <ul class="doing">
+            <li>Low Isles sailing &amp; snorkel (calmer, island setting) · or reef weather-backup · or a proper resort day</li>
+          </ul>
+          <div class="note book"><b>Stinger season note:</b> October edges toward the warmer marine-stinger months (roughly Nov–May). Follow your operator's advice and wear the protective suit when they say so.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REGION 3: MELBOURNE + GOR ============ -->
+<section class="region" id="melbourne">
+  <div class="wrap">
+    <div class="region-head reveal">
+      <div class="region-num">03</div>
+      <div class="region-title">
+        <h2>Melbourne &amp; the Great Ocean Road</h2>
+        <p class="sub">Fly Cairns to Melbourne direct, spend real time in the city, then take the one southern drive that earns every kilometre — two nights down the coast, two different towns, no backtracking.</p>
+        <span class="tag clay">Southern coast · 5 nights · the good drive</span>
+      </div>
+    </div>
+
+    <!-- GOR scene: Twelve Apostles -->
+    <div class="scene reveal">
+      <svg viewBox="0 0 1080 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Twelve Apostles sea stacks on the Great Ocean Road">
+        <rect width="1080" height="260" fill="#d9c8a4"/>
+        <rect width="1080" height="120" fill="#e4d7bb"/>
+        <circle cx="150" cy="70" r="30" fill="#bf5a3c" opacity="0.8"/>
+        <!-- sea -->
+        <rect y="150" width="1080" height="110" fill="#4f6f80"/>
+        <path d="M0 150 h1080 v8 H0z" fill="#3f5c6b"/>
+        <!-- cliff (right) -->
+        <path d="M1080 150 v110 H840 q10 -70 0 -110 z" fill="#8a5a34"/>
+        <path d="M1080 150 v10 H846 q2 -6 0 -10z" fill="#5a7a5a"/>
+        <!-- sea stacks -->
+        <g fill="#a06a3e" stroke="#6f4526" stroke-width="2">
+          <path d="M300 260 v-96 q10 -8 26 0 v96 z"/>
+          <path d="M360 260 v-120 q12 -8 30 0 v120 z"/>
+          <path d="M430 260 v-80 q9 -6 22 0 v80 z"/>
+          <path d="M620 260 v-104 q11 -8 26 0 v104 z"/>
+          <path d="M690 260 v-70 q8 -6 20 0 v70 z"/>
+        </g>
+        <!-- grass caps -->
+        <g fill="#5a7a5a">
+          <path d="M300 164 q13 -8 26 0 q-13 5 -26 0z"/>
+          <path d="M360 140 q15 -8 30 0 q-15 5 -30 0z"/>
+          <path d="M620 156 q13 -8 26 0 q-13 5 -26 0z"/>
+        </g>
+        <!-- foam -->
+        <g fill="#e4d7bb" opacity="0.8">
+          <ellipse cx="326" cy="258" rx="30" ry="6"/><ellipse cx="392" cy="258" rx="34" ry="6"/>
+          <ellipse cx="452" cy="258" rx="26" ry="5"/><ellipse cx="648" cy="258" rx="30" ry="6"/>
+        </g>
+        <!-- gulls -->
+        <g fill="none" stroke="#1b2a38" stroke-width="2">
+          <path d="M500 60 q8 -6 16 0 q8 -6 16 0"/><path d="M560 80 q6 -5 12 0 q6 -5 12 0"/>
+        </g>
+      </svg>
+    </div>
+
+    <div class="days">
+      <div class="day reveal">
+        <div class="day-key">
+          <div class="date">Oct 11</div><div class="dow">Sunday</div>
+          <div class="sleep"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-5h6v5"/></svg>Melbourne</div>
+        </div>
+        <div class="day-body">
+          <h3>Fly Cairns → Melbourne</h3>
+          <p>A direct hop (~3.5 hrs) swaps tropics for temperate in an afternoon. Check into the city, no car needed yet — Melbourne is a walking-and-tram town.</p>
+        </div>
+      </div>
+
+      <div class="day reveal">
+        <div class="day-key">
+          <div class="date">Oct 12</div><div class="dow">Monday</div>
+          <div class="sleep"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-5h6v5"/></svg>Melbourne</div>
+        </div>
+        <div class="day-body">
+          <h3>A full <span class="pin">Melbourne</span> day</h3>
+          <p>Give the city its due — it rewards wandering more than ticking sights. Coffee is a competitive sport here; lean in.</p>
+          <ul class="doing">
+            <li>CBD laneways &amp; arcades · Fitzroy or Collingwood · Carlton &amp; Lygon Street · Southbank</li>
+            <li>Long dinner, good wine, better coffee</li>
+          </ul>
+          <div class="note">Queen Victoria Market is closed Mondays — so save it for tomorrow morning on your way to the car.</div>
+        </div>
+      </div>
+
+      <div class="day reveal">
+        <div class="day-key">
+          <div class="date">Oct 13</div><div class="dow">Tuesday</div>
+          <div class="sleep"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-5h6v5"/></svg>Apollo Bay</div>
+        </div>
+        <div class="day-body">
+          <h3>Market, then drive to <span class="pin">Apollo Bay</span></h3>
+          <p>Grab the car after a Queen Vic Market breakfast and start the coast road. Today is the surf-coast stretch — take it in stages.</p>
+          <ul class="doing">
+            <li>Torquay · Bells Beach · the Memorial Arch · Lorne &amp; Teddy's Lookout · Kennett River koalas · Apollo Bay for the night</li>
+          </ul>
+          <div class="note">Sleep in Apollo Bay, not Lorne — it sets you up far better for the Otways and the Apostles tomorrow.</div>
+        </div>
+      </div>
+
+      <div class="day reveal">
+        <div class="day-key">
+          <div class="date">Oct 14</div><div class="dow">Wednesday</div>
+          <div class="sleep"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-5h6v5"/></svg>Port Campbell</div>
+        </div>
+        <div class="day-body">
+          <h3>Otways rainforest &amp; the Shipwreck Coast</h3>
+          <p>The scenic climax. Rainforest in the morning, the big sea stacks in the golden afternoon light, then sleep close enough to catch them again at dawn.</p>
+          <ul class="doing">
+            <li>Maits Rest rainforest walk · Cape Otway · Gibson Steps · Twelve Apostles · Loch Ard Gorge · The Razorback · Port Campbell</li>
+          </ul>
+          <div class="note">Staying in Port Campbell means the Apostles at sunset <i>and</i> sunrise, with no rush back to the city in between.</div>
+        </div>
+      </div>
+
+      <div class="day reveal">
+        <div class="day-key">
+          <div class="date">Oct 15</div><div class="dow">Thursday</div>
+          <div class="sleep"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-5h6v5"/></svg>Melbourne</div>
+        </div>
+        <div class="day-body">
+          <h3>Last coastal sights, inland home</h3>
+          <p>Catch the final viewpoints in morning light, then cut inland via Colac — a faster route back than re-driving the whole coast — and return the car in Melbourne.</p>
+          <ul class="doing">
+            <li>Twelve Apostles at sunrise (if you're up for it) · London Bridge · The Grotto · Bay of Islands</li>
+            <li>Inland to Melbourne · drop the car · final-night dinner in the city</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="day reveal">
+        <div class="day-key">
+          <div class="date">Oct 16</div><div class="dow">Friday</div>
+          <div class="sleep"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg>Fly home</div>
+        </div>
+        <div class="day-body">
+          <h3>Home</h3>
+          <p>Central Melbourne to the airport is only ~25–30 min, so a city hotel is fine — just leave by ~7:30 am for an 11:00 am departure.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- STAY PLAN -->
+    <div class="panel reveal">
+      <h4>Where to book — 6 stays</h4>
+      <div class="stay-row">
+        <div class="town">Sydney<small>Oct 3–6 · 3 nts</small></div>
+        <div class="desc"><b>The Rocks or Circular Quay.</b> Walkable to the harbour, ferries at your door. No car — you don't pick one up until the north.</div>
+      </div>
+      <div class="stay-row">
+        <div class="town">Port Douglas<small>Oct 6–11 · 5 nts</small></div>
+        <div class="desc"><b>One base for the whole north.</b> An apartment or Airbnb earns its keep here — kitchen, space, and you day-trip to the Daintree and Tablelands and return each night.</div>
+      </div>
+      <div class="stay-row">
+        <div class="town">Melbourne<small>Oct 11–13 · 2 nts</small></div>
+        <div class="desc"><b>City centre.</b> Trams and laneways on foot. Book this and the final night separately, or keep one continuous booking and travel light down the coast.</div>
+      </div>
+      <div class="stay-row">
+        <div class="town">Apollo Bay<small>Oct 13 · 1 nt</small></div>
+        <div class="desc"><b>Great Ocean Road, night one.</b> Positions you for the Otways and Apostles the next day.</div>
+      </div>
+      <div class="stay-row">
+        <div class="town">Port Campbell<small>Oct 14 · 1 nt</small></div>
+        <div class="desc"><b>Great Ocean Road, night two.</b> Walking distance to the Apostles for sunset and sunrise.</div>
+      </div>
+      <div class="stay-row">
+        <div class="town">Melbourne<small>Oct 15 · 1 nt</small></div>
+        <div class="desc"><b>Final night.</b> City hotel is fine for the morning flight — no need to stay out by the airport.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CLOSING ============ -->
+<section class="closing">
+  <div class="wrap">
+    <div class="rule reveal"></div>
+    <h2 class="reveal">Three regions, done deep — and only the roads worth driving.</h2>
+    <div class="checklist">
+      <div class="reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg><span>Lock in the <b>award return for Oct 16</b> before anything else — reward seats can be scarce.</span></div>
+      <div class="reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg><span>Book the <b>outer-reef snorkel day</b> now — October fills fast.</span></div>
+      <div class="reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg><span>Reserve <b>two internal flights</b>: Sydney→Cairns and Cairns→Melbourne.</span></div>
+      <div class="reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg><span>Arrange a <b>day car in Sydney</b> for the Blue Mountains, or a small-group tour.</span></div>
+      <div class="reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg><span>Remember you drive on the <b>left</b> — give the first hour some patience.</span></div>
+      <div class="reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg><span>Check <b>track and market hours</b> the week before — closures and holidays shift.</span></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span class="mono">Sydney · Port Douglas · Melbourne — Oct 3–16 · Planned for two</span>
+  </div>
+</footer>
+
+<script>
+  // gentle scroll reveal, respects reduced-motion (handled via CSS)
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{threshold:0.12, rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
