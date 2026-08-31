@@ -167,6 +167,11 @@
   .stay-row .town small{display:block;font-family:"Spline Sans Mono",monospace;font-size:.62rem;letter-spacing:.1em;color:var(--ink-soft);font-weight:400;margin-top:3px;text-transform:uppercase}
   .stay-row .desc{font-size:.94rem;color:var(--ink-soft)}
   .stay-row .desc b{color:var(--ink);font-weight:600}
+  .stay-meta{display:block;font-family:"Spline Sans Mono",monospace;font-size:.68rem;letter-spacing:.02em;color:var(--ink-soft);margin-top:5px;line-height:1.6}
+  .stay-meta a{color:var(--euc-deep);text-decoration:none;border-bottom:1px solid rgba(79,111,87,.3)}
+  .booked{display:inline-flex;align-items:center;gap:5px;font-family:"Spline Sans Mono",monospace;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--euc-deep);background:rgba(79,111,87,.14);border:1px solid rgba(79,111,87,.4);padding:2px 8px;border-radius:100px;font-weight:600;margin-left:8px;vertical-align:middle;white-space:nowrap}
+  .booked svg{width:10px;height:10px}
+  .pending{display:inline-flex;align-items:center;font-family:"Spline Sans Mono",monospace;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--clay-deep);background:rgba(191,90,60,.1);border:1px solid rgba(191,90,60,.35);padding:2px 8px;border-radius:100px;font-weight:600;margin-left:8px;vertical-align:middle;white-space:nowrap}
 
   /* ---------- FEATURE ROWS (activity spotlights) ---------- */
   .spot{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:30px;border:1.5px solid var(--line-strong);border-radius:2px;overflow:hidden}
@@ -180,6 +185,40 @@
   .compare>div{flex:1}
   .compare .name{font-family:"Fraunces",serif;font-weight:600;font-size:1.05rem}
   .compare .meta{font-family:"Spline Sans Mono",monospace;font-size:.68rem;color:var(--ink-soft);margin-top:5px;line-height:1.5}
+
+  /* ---------- EATS ---------- */
+  .eats{margin-top:30px}
+  .eats-head{display:flex;align-items:baseline;gap:14px;margin-bottom:4px}
+  .eats-head .k{font-family:"Spline Sans Mono",monospace;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--clay-deep);font-weight:600}
+  .eats-head .h{font-family:"Fraunces",serif;font-weight:600;font-size:1.35rem}
+  .eats-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0;margin-top:14px;border-top:1px solid var(--line)}
+  .eat{padding:16px 22px 16px 0;border-bottom:1px solid var(--line)}
+  .eat:nth-child(odd){border-right:1px solid var(--line);padding-right:26px}
+  .eat:nth-child(even){padding-left:26px}
+  .eat .top{display:flex;align-items:baseline;justify-content:space-between;gap:10px}
+  .eat .nm{font-family:"Fraunces",serif;font-weight:600;font-size:1.12rem;line-height:1.1}
+  .eat .rt{font-family:"Spline Sans Mono",monospace;font-size:.72rem;color:var(--euc-deep);white-space:nowrap;font-weight:600}
+  .eat .rt svg{width:11px;height:11px;vertical-align:-1px;margin-right:2px}
+  .eat .kind{font-family:"Spline Sans Mono",monospace;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--clay-deep);margin:6px 0 7px}
+  .eat .blurb{font-size:.9rem;color:var(--ink-soft);line-height:1.5}
+  @media(max-width:620px){
+    .eats-grid{grid-template-columns:1fr}
+    .eat:nth-child(odd){border-right:none;padding-right:0}
+    .eat:nth-child(even){padding-left:0}
+  }
+
+  /* ---------- ROUTE MAP ---------- */
+  .map{margin-top:30px;border:1.5px solid var(--line-strong);border-radius:2px;background:var(--ink);overflow:hidden}
+  .map .cap{display:flex;justify-content:space-between;align-items:baseline;padding:16px 22px 8px;flex-wrap:wrap;gap:8px}
+  .map .cap .t{font-family:"Fraunces",serif;color:var(--paper);font-weight:600;font-size:1.15rem}
+  .map .cap .d{font-family:"Spline Sans Mono",monospace;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--sand)}
+  .map svg{display:block;width:100%;height:auto}
+  .maplabel{font-family:"Spline Sans Mono",monospace;font-size:9.5px;letter-spacing:.04em;fill:var(--paper)}
+  .maplabel.dim{fill:var(--sand);opacity:.75}
+  .mapnight{font-family:"Spline Sans Mono",monospace;font-size:8px;letter-spacing:.1em;text-transform:uppercase;fill:#bf5a3c;font-weight:600}
+  .maplegend{padding:8px 22px 18px;display:flex;gap:22px;flex-wrap:wrap}
+  .maplegend span{font-family:"Spline Sans Mono",monospace;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--sand);display:flex;align-items:center;gap:7px}
+  .maplegend .sw{width:22px;height:0;border-top-width:2px;border-top-style:solid}
 
   /* ---------- CLOSING ---------- */
   .closing{padding:72px 0 90px}
@@ -320,8 +359,8 @@
 <!-- ============ ARRIVAL NOTE ============ -->
 <div class="wrap">
   <div class="panel reveal" style="margin-top:44px">
-    <h4>Before you read on — one date thing</h4>
-    <p style="color:var(--ink-soft);font-size:1rem">Your outbound leaves Phoenix <b style="color:var(--ink)">Thu Oct 1</b> but lands in Sydney <b style="color:var(--ink)">Sat Oct 3, 6:50 am</b> — the international date line eats a day. So the plan below starts Oct 3, and treats that first morning as a gentle, jet-lagged arrival rather than a sightseeing day. Your flight home is out of <b style="color:var(--ink)">Melbourne, 11:00 am</b>, so the whole trip is built to end there. Since you're adding a few days, this runs to <b style="color:var(--ink)">Oct 16</b> — lock in the new award return before booking rooms, as reward seats on the date can be tight.</p>
+    <h4>Before you read on — one date thing <span class="booked"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>Flights booked</span></h4>
+    <p style="color:var(--ink-soft);font-size:1rem">Your outbound leaves Phoenix <b style="color:var(--ink)">Thu Oct 1, 4:00 pm</b> but lands in Sydney <b style="color:var(--ink)">Sat Oct 3, 6:50 am</b> (via LAX) — the international date line eats a day. So the plan below starts Oct 3, and treats that first morning as a gentle, jet-lagged arrival rather than a sightseeing day. Your flight home leaves <b style="color:var(--ink)">Melbourne Fri Oct 16, 11:00 am</b>, so the whole trip is built to end there — car back and at the airport by ~8 am that morning. Both legs are confirmed on Delta for two.</p>
   </div>
 </div>
 
@@ -380,7 +419,7 @@
         <div class="day-key">
           <div class="date">Oct 3</div>
           <div class="dow">Saturday</div>
-          <div class="sleep"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-5h6v5"/></svg>Sydney</div>
+          <div class="sleep"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-5h6v5"/></svg>Harbour Rocks</div>
         </div>
         <div class="day-body">
           <h3>Land, then let the harbour wake you up</h3>
@@ -397,7 +436,7 @@
         <div class="day-key">
           <div class="date">Oct 4</div>
           <div class="dow">Sunday</div>
-          <div class="sleep"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-5h6v5"/></svg>Sydney</div>
+          <div class="sleep"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-5h6v5"/></svg>Harbour Rocks</div>
         </div>
         <div class="day-body">
           <h3>The <span class="pin">Manly</span> ferry, then a slow city afternoon</h3>
@@ -414,7 +453,7 @@
         <div class="day-key">
           <div class="date">Oct 5</div>
           <div class="dow">Monday</div>
-          <div class="sleep"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-5h6v5"/></svg>Sydney</div>
+          <div class="sleep"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-5h6v5"/></svg>Harbour Rocks</div>
         </div>
         <div class="day-body">
           <h3>Blue Mountains — hire a car for the day</h3>
@@ -425,6 +464,33 @@
             <li>Three Sisters at Echo Point, and a section of the Prince Henry Cliff Walk</li>
           </ul>
           <div class="note book"><b>Check before you go:</b> Blue Mountains tracks can close for weather, fire danger or maintenance. Look at the official NSW alerts the week prior.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SYDNEY EATS -->
+    <div class="eats reveal">
+      <div class="eats-head"><span class="k">Where to eat</span><span class="h">Italian, steak &amp; Asian near the Quay</span></div>
+      <div class="eats-grid">
+        <div class="eat">
+          <div class="top"><span class="nm">Bistecca</span><span class="rt"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>4.7</span></div>
+          <div class="kind">Florentine steakhouse · The Rocks</div>
+          <div class="blurb">A dry-aged Bistecca alla Fiorentina, hidden entrance, phone-in-a-lockbox policy so you actually talk. The big steak night — book ahead. (Bar-forward, but the food's the point.)</div>
+        </div>
+        <div class="eat">
+          <div class="top"><span class="nm">Scala Lane</span><span class="rt"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>4.7</span></div>
+          <div class="kind">Italian · laneway · does great mocktails</div>
+          <div class="blurb">Reviewers single out the mocktails and the best gnocchi and tiramisu in the city, in a cosy Wynyard laneway. A relaxed, no-pressure Italian night.</div>
+        </div>
+        <div class="eat">
+          <div class="top"><span class="nm">Thai 44</span><span class="rt"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>4.7</span></div>
+          <div class="kind">Thai · Chinatown · casual</div>
+          <div class="blurb">Bangkok street-style — huge pad thai and a knockout grapao with runny egg, big portions, cheap. The easy, tasty, no-fuss weeknight.</div>
+        </div>
+        <div class="eat">
+          <div class="top"><span class="nm">Khao Soi</span><span class="rt"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>4.4</span></div>
+          <div class="kind">Northern Thai · chicken curry noodles</div>
+          <div class="blurb">Creamy khao soi curry noodles and chicken katsu — a warm, comforting bowl. Come early on weeknights; the queue is real for a reason.</div>
         </div>
       </div>
     </div>
@@ -495,7 +561,7 @@
       <div class="day reveal">
         <div class="day-key">
           <div class="date">Oct 6</div><div class="dow">Tuesday</div>
-          <div class="sleep"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-5h6v5"/></svg>Port Douglas</div>
+          <div class="sleep"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-5h6v5"/></svg>Oaks Resort</div>
         </div>
         <div class="day-body">
           <h3>Fly to Cairns, drive to <span class="pin">Port Douglas</span></h3>
@@ -510,12 +576,12 @@
       <div class="day reveal">
         <div class="day-key">
           <div class="date">Oct 7</div><div class="dow">Wednesday</div>
-          <div class="sleep"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-5h6v5"/></svg>Port Douglas</div>
+          <div class="sleep"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-5h6v5"/></svg>Oaks Resort</div>
         </div>
         <div class="day-body">
-          <h3>Outer Great Barrier Reef — the big one</h3>
-          <p>Book the reef on your <b>first</b> full day so the later days stay open as weather backups. Go with a snorkel-focused operator running small groups to the outer reef.</p>
-          <div class="note book"><b>Book now, not there:</b> October is peak season and the good boats sell out. Secure the outer-reef day in advance; decide on any second water day once you're there.</div>
+          <h3>Outer Great Barrier Reef with Wavelength <span class="booked"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>Booked</span></h3>
+          <p>Locked in for 2 — a snorkel-focused, small-group day on the outer reef, on your first full day so the later days stay free as weather backups.</p>
+          <div class="note"><b>Check-in 8:10 am</b> — it's an early, full day on the water. Keep tonight's dinner low-key and close by (IronBar or Sassi both fit); you'll be sun-and-salt tired.</div>
         </div>
       </div>
 
@@ -564,7 +630,7 @@
       <div class="day reveal">
         <div class="day-key">
           <div class="date">Oct 8</div><div class="dow">Thursday</div>
-          <div class="sleep"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-5h6v5"/></svg>Port Douglas</div>
+          <div class="sleep"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-5h6v5"/></svg>Oaks Resort</div>
         </div>
         <div class="day-body">
           <h3><span class="pin">Daintree</span> &amp; Cape Tribulation</h3>
@@ -579,7 +645,7 @@
       <div class="day reveal">
         <div class="day-key">
           <div class="date">Oct 9</div><div class="dow">Friday</div>
-          <div class="sleep"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-5h6v5"/></svg>Port Douglas</div>
+          <div class="sleep"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-5h6v5"/></svg>Oaks Resort</div>
         </div>
         <div class="day-body">
           <h3>Atherton Tablelands — waterfall country</h3>
@@ -594,7 +660,7 @@
       <div class="day reveal">
         <div class="day-key">
           <div class="date">Oct 10</div><div class="dow">Saturday</div>
-          <div class="sleep"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-5h6v5"/></svg>Port Douglas</div>
+          <div class="sleep"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-5h6v5"/></svg>Oaks Resort</div>
         </div>
         <div class="day-body">
           <h3>Flex day — reef again, or do nothing at all</h3>
@@ -603,6 +669,33 @@
             <li>Low Isles sailing &amp; snorkel (calmer, island setting) · or reef weather-backup · or a proper resort day</li>
           </ul>
           <div class="note book"><b>Stinger season note:</b> October edges toward the warmer marine-stinger months (roughly Nov–May). Follow your operator's advice and wear the protective suit when they say so.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PORT DOUGLAS EATS -->
+    <div class="eats reveal">
+      <div class="eats-head"><span class="k">Where to eat</span><span class="h">Macrossan Street, mostly Italian &amp; grill</span></div>
+      <div class="eats-grid">
+        <div class="eat">
+          <div class="top"><span class="nm">IronBar</span><span class="rt"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>4.2</span></div>
+          <div class="kind">Steak &amp; grill · lively · live music</div>
+          <div class="blurb">The town's fun grill night — wagyu burgers, steaks, ribs, an easygoing Aussie-pub feel. Non-beef options too. Good for a relaxed, buzzy dinner.</div>
+        </div>
+        <div class="eat">
+          <div class="top"><span class="nm">Sassi Cucina</span><span class="rt"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>4.5</span></div>
+          <div class="kind">Italian · pasta &amp; roasts</div>
+          <div class="blurb">Locals' favourite for classic Italian — roast chicken, pasta, wood-fired pizza, plus virgin daiquiris on the list. Warm and unpretentious.</div>
+        </div>
+        <div class="eat">
+          <div class="top"><span class="nm">La Cucina + Bar</span><span class="rt"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>4.1</span></div>
+          <div class="kind">Italian · pasta &amp; pizza · family-friendly</div>
+          <div class="blurb">Braised beef cheek, orange duck leg, roast chicken and pizza in a leafy setting — reviewers rave over multiple nights. Buttered-noodle simple options for an easy meal too.</div>
+        </div>
+        <div class="eat">
+          <div class="top"><span class="nm">Watergate</span><span class="rt"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>4.4</span></div>
+          <div class="kind">Modern · steak, duck &amp; kangaroo</div>
+          <div class="blurb">A pretty tree-lined deck with steak, duck pancakes and kangaroo done well — plus fresh non-alcoholic drinks. The slightly-nicer night out.</div>
         </div>
       </div>
     </div>
@@ -663,18 +756,18 @@
       <div class="day reveal">
         <div class="day-key">
           <div class="date">Oct 11</div><div class="dow">Sunday</div>
-          <div class="sleep"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-5h6v5"/></svg>Melbourne</div>
+          <div class="sleep"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-5h6v5"/></svg>Vibe Hotel</div>
         </div>
         <div class="day-body">
           <h3>Fly Cairns → Melbourne</h3>
-          <p>A direct hop (~3.5 hrs) swaps tropics for temperate in an afternoon. Check into the city, no car needed yet — Melbourne is a walking-and-tram town.</p>
+          <p>A direct hop (~3.5 hrs) swaps tropics for temperate in an afternoon. Check into the Vibe on Queen St (from 3 pm), no car needed yet — Melbourne is a walking-and-tram town.</p>
         </div>
       </div>
 
       <div class="day reveal">
         <div class="day-key">
           <div class="date">Oct 12</div><div class="dow">Monday</div>
-          <div class="sleep"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-5h6v5"/></svg>Melbourne</div>
+          <div class="sleep"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-5h6v5"/></svg>Vibe Hotel</div>
         </div>
         <div class="day-body">
           <h3>A full <span class="pin">Melbourne</span> day</h3>
@@ -690,7 +783,7 @@
       <div class="day reveal">
         <div class="day-key">
           <div class="date">Oct 13</div><div class="dow">Tuesday</div>
-          <div class="sleep"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-5h6v5"/></svg>Apollo Bay</div>
+          <div class="sleep"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-5h6v5"/></svg>Sandpiper Motel</div>
         </div>
         <div class="day-body">
           <h3>Market, then drive to <span class="pin">Apollo Bay</span></h3>
@@ -705,7 +798,7 @@
       <div class="day reveal">
         <div class="day-key">
           <div class="date">Oct 14</div><div class="dow">Wednesday</div>
-          <div class="sleep"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-5h6v5"/></svg>Port Campbell</div>
+          <div class="sleep"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-5h6v5"/></svg>Loch Ard Inn</div>
         </div>
         <div class="day-body">
           <h3>Otways rainforest &amp; the Shipwreck Coast</h3>
@@ -720,15 +813,16 @@
       <div class="day reveal">
         <div class="day-key">
           <div class="date">Oct 15</div><div class="dow">Thursday</div>
-          <div class="sleep"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-5h6v5"/></svg>Melbourne</div>
+          <div class="sleep"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-5h6v5"/></svg>Mantra Airport</div>
         </div>
         <div class="day-body">
           <h3>Last coastal sights, inland home</h3>
-          <p>Catch the final viewpoints in morning light, then cut inland via Colac — a faster route back than re-driving the whole coast — and return the car in Melbourne.</p>
+          <p>Catch the final viewpoints in morning light, then cut inland via Colac — a faster route back than re-driving the whole coast — and return the car, then check in at the Mantra by the airport for an effortless morning.</p>
           <ul class="doing">
             <li>Twelve Apostles at sunrise (if you're up for it) · London Bridge · The Grotto · Bay of Islands</li>
-            <li>Inland to Melbourne · drop the car · final-night dinner in the city</li>
+            <li>Inland to Melbourne · drop the rental at the airport depot · dinner near the hotel</li>
           </ul>
+          <div class="note">Returning the car this evening (not tomorrow morning) means zero stress before the flight. Confirm your depot's closing hours when you book the rental.</div>
         </div>
       </div>
 
@@ -739,37 +833,156 @@
         </div>
         <div class="day-body">
           <h3>Home</h3>
-          <p>Central Melbourne to the airport is only ~25–30 min, so a city hotel is fine — just leave by ~7:30 am for an 11:00 am departure.</p>
+          <p>You're minutes from the terminal at the Mantra, with a free airport shuttle — so the morning's easy. Aim to be at the terminal by ~8:30 am for the 11:00 am departure.</p>
         </div>
+      </div>
+    </div>
+
+    <!-- MELBOURNE EATS -->
+    <div class="eats reveal">
+      <div class="eats-head"><span class="k">Where to eat</span><span class="h">Fitzroy, Carlton, Chinatown &amp; the coast</span></div>
+      <div class="eats-grid">
+        <div class="eat">
+          <div class="top"><span class="nm">Cinder</span><span class="rt"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>4.7</span></div>
+          <div class="kind">Josper-grill · Fitzroy North</div>
+          <div class="blurb">Everything cooked over the fire — wagyu, chef's sides, that dill-and-pickle-butter focaccia. A speakeasy vibe behind a pub. The standout grill night.</div>
+        </div>
+        <div class="eat">
+          <div class="top"><span class="nm">Johnny, Vince &amp; Sam's</span><span class="rt"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>4.6</span></div>
+          <div class="kind">Italian · Lygon St, Carlton</div>
+          <div class="blurb">Honest, homestyle Italian on the classic Lygon Street strip — arancini, bolognese, meatballs, roast potatoes. Bustling but the queue moves fast.</div>
+        </div>
+        <div class="eat">
+          <div class="top"><span class="nm">Thai Town</span><span class="rt"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>4.7</span></div>
+          <div class="kind">Thai · QV, city centre</div>
+          <div class="blurb">Authentic and lively in the heart of town — pork skewers, papaya salad, pineapple rice. Big portions, quick service. Great casual city dinner.</div>
+        </div>
+        <div class="eat">
+          <div class="top"><span class="nm">Graze &amp; 12 Rocks</span><span class="rt"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>4.6</span></div>
+          <div class="kind">On the road · Apollo Bay &amp; Port Campbell</div>
+          <div class="blurb">Coast nights: Graze in Apollo Bay does steak and kangaroo alongside its seafood, and 12 Rocks in Port Campbell is a casual bay-view spot for burgers and pork belly. Book Graze — set sittings.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GREAT OCEAN ROAD ROUTE MAP -->
+    <div class="map reveal">
+      <div class="cap">
+        <span class="t">The Great Ocean Road — plotted</span>
+        <span class="d">Melbourne → Apollo Bay → Port Campbell · Oct 13–15</span>
+      </div>
+      <svg viewBox="0 0 1080 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Route map of the Great Ocean Road drive from Melbourne through Apollo Bay to Port Campbell">
+        <!-- ocean -->
+        <rect width="1080" height="360" fill="#1b2a38"/>
+        <!-- land mass filling the upper portion; coastline is the lower edge -->
+        <path d="M0 0 H1080 V150 C 940 150, 900 176, 820 210 C 720 250, 640 230, 470 196 C 360 174, 250 176, 120 150 L0 140 Z" fill="#243746"/>
+        <!-- faint ocean texture -->
+        <path d="M0 300 Q 270 288 540 300 T 1080 300" fill="none" stroke="#22384a" stroke-width="14" opacity="0.6"/>
+
+        <!-- inland return (Colac shortcut), Oct 15 -->
+        <path d="M916 250 C 820 120, 400 96, 150 120" fill="none" stroke="#5a7a5a" stroke-width="2" stroke-dasharray="2 7" opacity="0.85"/>
+        <text class="maplabel dim" x="470" y="86" text-anchor="middle">inland via Colac — the faster road home (Oct 15)</text>
+
+        <!-- THE COAST DRIVE (Oct 13–14): Melbourne east → Port Campbell west -->
+        <path id="gor" d="M150 120 L292 168 L372 168 L470 176 L560 196 L742 230 L820 214 L892 236 L916 250"
+              fill="none" stroke="#bf5a3c" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <!-- direction chevrons along route -->
+        <polygon points="430,175 418,169 418,181" fill="#bf5a3c"/>
+        <polygon points="650,214 637,209 639,221" fill="#bf5a3c"/>
+
+        <!-- MELBOURNE (start) -->
+        <g>
+          <circle cx="150" cy="120" r="6" fill="#f4efe4" stroke="#bf5a3c" stroke-width="3"/>
+          <text class="maplabel" x="150" y="106" text-anchor="middle">MELBOURNE</text>
+          <text class="maplabel dim" x="150" y="140" text-anchor="middle">pick up car</text>
+        </g>
+        <!-- Torquay -->
+        <g>
+          <circle cx="292" cy="168" r="4.5" fill="#e6d9bf"/>
+          <text class="maplabel" x="292" y="154" text-anchor="middle">Torquay</text>
+          <text class="maplabel dim" x="292" y="187" text-anchor="middle">Bells Beach</text>
+        </g>
+        <!-- Memorial Arch -->
+        <g>
+          <circle cx="372" cy="168" r="4.5" fill="#e6d9bf"/>
+          <text class="maplabel" x="372" y="203" text-anchor="middle">Memorial Arch</text>
+        </g>
+        <!-- Lorne -->
+        <g>
+          <circle cx="470" cy="176" r="4.5" fill="#e6d9bf"/>
+          <text class="maplabel" x="470" y="162" text-anchor="middle">Lorne</text>
+        </g>
+        <!-- Kennett River -->
+        <g>
+          <circle cx="560" cy="196" r="4.5" fill="#e6d9bf"/>
+          <text class="maplabel" x="560" y="216" text-anchor="middle">Kennett River</text>
+          <text class="maplabel dim" x="560" y="228" text-anchor="middle">koalas</text>
+        </g>
+        <!-- APOLLO BAY — Night 1 -->
+        <g>
+          <circle cx="742" cy="230" r="7.5" fill="#bf5a3c" stroke="#f4efe4" stroke-width="2.5"/>
+          <text class="mapnight" x="742" y="216" text-anchor="middle">◗ NIGHT 1</text>
+          <text class="maplabel" x="742" y="252" text-anchor="middle">APOLLO BAY</text>
+          <text class="maplabel dim" x="742" y="264" text-anchor="middle">dinner: Graze</text>
+        </g>
+        <!-- Otways segment -->
+        <g>
+          <circle cx="820" cy="214" r="3.5" fill="#5a7a5a"/>
+          <text class="maplabel dim" x="820" y="202" text-anchor="middle">Otways: Maits Rest · Cape Otway</text>
+        </g>
+        <!-- Twelve Apostles + Loch Ard cluster -->
+        <g>
+          <circle cx="892" cy="236" r="4.5" fill="#e6d9bf"/>
+          <text class="maplabel" x="892" y="222" text-anchor="middle">Twelve Apostles</text>
+          <text class="maplabel dim" x="892" y="250" text-anchor="middle">Loch Ard Gorge</text>
+        </g>
+        <!-- PORT CAMPBELL — Night 2 -->
+        <g>
+          <circle cx="916" cy="285" r="7.5" fill="#bf5a3c" stroke="#f4efe4" stroke-width="2.5"/>
+          <line x1="916" y1="257" x2="916" y2="278" stroke="#bf5a3c" stroke-width="2" stroke-dasharray="2 3"/>
+          <text class="mapnight" x="916" y="304" text-anchor="middle">◗ NIGHT 2</text>
+          <text class="maplabel" x="916" y="318" text-anchor="middle">PORT CAMPBELL</text>
+        </g>
+      </svg>
+      <div class="maplegend">
+        <span><span class="sw" style="border-top-color:#bf5a3c"></span>The coast drive (Oct 13–14)</span>
+        <span><span class="sw" style="border-top-color:#5a7a5a;border-top-style:dashed"></span>Inland return (Oct 15)</span>
+        <span><span class="sw" style="border-top-color:#bf5a3c;border-top-width:7px"></span>Overnight stop</span>
       </div>
     </div>
 
     <!-- STAY PLAN -->
     <div class="panel reveal">
-      <h4>Where to book — 6 stays</h4>
+      <h4>Your six stays — all booked ✓</h4>
       <div class="stay-row">
         <div class="town">Sydney<small>Oct 3–6 · 3 nts</small></div>
-        <div class="desc"><b>The Rocks or Circular Quay.</b> Walkable to the harbour, ferries at your door. No car — you don't pick one up until the north.</div>
+        <div class="desc"><b>Harbour Rocks Hotel</b> (by Ode Hotels)<span class="booked"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>Booked</span>
+          <span class="stay-meta">34 Harrington St, The Rocks NSW 2000 · +61 2 8220 9999<br>Check-in from 3:00 pm · 2-min walk to the harbour, between Opera House &amp; Bridge · note: heritage building, no elevator</span></div>
       </div>
       <div class="stay-row">
         <div class="town">Port Douglas<small>Oct 6–11 · 5 nts</small></div>
-        <div class="desc"><b>One base for the whole north.</b> An apartment or Airbnb earns its keep here — kitchen, space, and you day-trip to the Daintree and Tablelands and return each night.</div>
+        <div class="desc"><b>Oaks Port Douglas Resort</b><span class="booked"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>Booked</span>
+          <span class="stay-meta">87–109 Port Douglas Rd, Port Douglas QLD 4877 · +61 1300 165 369<br>Check-in from 2:00 pm · reception 24 hrs · pool + swim-up bar · shuttle into town (small charge)</span></div>
       </div>
       <div class="stay-row">
         <div class="town">Melbourne<small>Oct 11–13 · 2 nts</small></div>
-        <div class="desc"><b>City centre.</b> Trams and laneways on foot. Book this and the final night separately, or keep one continuous booking and travel light down the coast.</div>
+        <div class="desc"><b>Vibe Hotel Melbourne</b><span class="booked"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>Booked</span>
+          <span class="stay-meta">1 Queen St, Melbourne VIC 3000 · +61 3 9958 9100<br>Check-in from 3:00 pm · reception 24 hrs · on Flinders/Queen in the CBD · trams at the door · valet/next-door parking ~$35</span></div>
       </div>
       <div class="stay-row">
         <div class="town">Apollo Bay<small>Oct 13 · 1 nt</small></div>
-        <div class="desc"><b>Great Ocean Road, night one.</b> Positions you for the Otways and Apostles the next day.</div>
+        <div class="desc"><b>Sandpiper Motel</b> — Great Ocean Road<span class="booked"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>Booked</span>
+          <span class="stay-meta">3 Murray St, Apollo Bay VIC 3233 · +61 3 5237 6732<br>Reception 8:30 am–7:00 pm · self check-in if arriving later (key left for you) · short walk to the strip &amp; beach · in-room kitchenette</span></div>
       </div>
       <div class="stay-row">
         <div class="town">Port Campbell<small>Oct 14 · 1 nt</small></div>
-        <div class="desc"><b>Great Ocean Road, night two.</b> Walking distance to the Apostles for sunset and sunrise.</div>
+        <div class="desc"><b>Loch Ard Motor Inn</b><span class="booked"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>Booked</span>
+          <span class="stay-meta">18 Lord St, Port Campbell VIC 3269 · +61 3 5598 6328<br>Check-in from 2:00 pm · 2-min walk to bay, pub &amp; ice creamery · ~5 min drive to the Twelve Apostles for sunset/sunrise</span></div>
       </div>
       <div class="stay-row">
         <div class="town">Melbourne<small>Oct 15 · 1 nt</small></div>
-        <div class="desc"><b>Final night.</b> City hotel is fine for the morning flight — no need to stay out by the airport.</div>
+        <div class="desc"><b>Mantra Melbourne Airport</b><span class="booked"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>Booked</span>
+          <span class="stay-meta">2 Trade Park Dr, Tullamarine VIC 3043 · +61 3 9093 6500<br>Check-in from 2:00 pm · free airport shuttle · minutes from the terminal for your 11:00 am flight</span></div>
       </div>
     </div>
   </div>
