@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sydney · Reef · Melbourne — 13 Nights</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sydney, the Reef and Melbourne: 13 nights</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..700&family=Spline+Sans:wght@300..700&family=Spline+Sans+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -23,7 +23,8 @@
     --shadow:24px 24px 0 rgba(27,42,56,.06);
   }
   *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
+  html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+  :root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
   body{
     background:var(--paper);
     color:var(--ink);
@@ -207,6 +208,49 @@
     .eat:nth-child(even){padding-left:0}
   }
 
+
+  /* booking chips */
+  .bk{display:inline-flex;align-items:center;font-family:"Spline Sans Mono",monospace;font-size:.58rem;letter-spacing:.08em;text-transform:uppercase;font-weight:600;padding:2px 8px;border-radius:100px;white-space:nowrap;border:1px solid}
+  .bk.far{color:#fff;background:var(--clay-deep);border-color:var(--clay-deep)}
+  .bk.must{color:var(--clay-deep);background:rgba(191,90,60,.1);border-color:rgba(191,90,60,.4)}
+  .bk.walk{color:var(--euc-deep);background:rgba(79,111,87,.12);border-color:rgba(79,111,87,.4)}
+  .eats-key{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+  .eat .top{flex-wrap:wrap;row-gap:6px}
+  .eats + .eats{margin-top:44px}
+  .dry{margin-top:44px}
+
+
+  /* ---------- ROAD TRIP PLAYBOOK ---------- */
+  .gor{margin-top:30px}
+  .gor-intro{color:var(--ink-soft);max-width:66ch;margin:10px 0 0}
+  .gor-legs{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:22px;border:1.5px solid var(--line-strong);border-radius:2px;background:rgba(230,217,191,.25)}
+  .gleg{padding:22px 22px 18px;border-right:1px solid var(--line)}
+  .gleg:last-child{border-right:none}
+  .gleg .d{font-family:"Fraunces",serif;font-weight:600;font-size:1.25rem;line-height:1.05}
+  .gleg .r{font-family:"Spline Sans Mono",monospace;font-size:.66rem;color:var(--clay-deep);margin-top:6px;letter-spacing:.04em}
+  .stops{list-style:none;margin-top:16px;display:flex;flex-direction:column;gap:11px}
+  .stops li{display:grid;grid-template-columns:52px 1fr;gap:10px;font-size:.92rem;color:var(--ink-soft);line-height:1.45}
+  .stops .t{font-family:"Spline Sans Mono",monospace;font-size:.7rem;color:var(--ink);font-weight:600;padding-top:2px}
+  .stops b{color:var(--ink);font-weight:600}
+  .stops .opt{font-family:"Spline Sans Mono",monospace;font-size:.58rem;text-transform:uppercase;letter-spacing:.08em;color:var(--euc-deep);border:1px solid rgba(79,111,87,.4);border-radius:100px;padding:0 6px;margin-left:4px;white-space:nowrap}
+  .know{display:grid;grid-template-columns:1fr 1fr;gap:0 36px;margin-top:22px}
+  .know div{padding:13px 0;border-top:1px solid var(--line);font-size:.94rem;color:var(--ink-soft)}
+  .know b{color:var(--ink);font-weight:600;display:block;margin-bottom:3px;font-family:"Fraunces",serif;font-size:1.02rem}
+  @media(max-width:860px){
+    .gor-legs{grid-template-columns:1fr}
+    .gleg{border-right:none;border-bottom:1px solid var(--line)}
+    .gleg:last-child{border-bottom:none}
+    .know{grid-template-columns:1fr}
+  }
+
+
+  /* ---------- DAY DETAIL (Oct 8, Oct 9) ---------- */
+  .dd{margin-top:16px;border:1.5px solid var(--line-strong);border-radius:2px;background:rgba(230,217,191,.25);padding:18px 20px}
+  .dd h4{font-family:"Fraunces",serif;font-weight:600;font-size:1.02rem;margin-bottom:2px}
+  .dd .r{font-family:"Spline Sans Mono",monospace;font-size:.66rem;color:var(--clay-deep)}
+  .dd .stops{margin-top:12px}
+  .dd .know{margin-top:16px}
+
   /* ---------- ROUTE MAP ---------- */
   .map{margin-top:30px;border:1.5px solid var(--line-strong);border-radius:2px;background:var(--ink);overflow:hidden}
   .map .cap{display:flex;justify-content:space-between;align-items:baseline;padding:16px 22px 8px;flex-wrap:wrap;gap:8px}
@@ -266,9 +310,9 @@
 <header class="hero">
   <div class="wrap hero-grid">
     <div>
-      <span class="eyebrow">Two of us · Rental car · Spring in the south</span>
+      <span class="eyebrow">Planned for two, October 2026</span>
       <h1>Sydney,<br>the <em>Reef</em>,<br>&amp; the long<br>coast south.</h1>
-      <p class="lede">Thirteen nights across three worlds — a harbour city, the tropical north, and the wild Victorian coast — with the driving saved for the roads that are worth it.</p>
+      <p class="lede">Thirteen nights in Sydney, Port Douglas and Melbourne, finishing with three days of driving on the Great Ocean Road.</p>
       <div class="facts">
         <div class="fact"><span class="n">13</span><span class="l">Nights</span></div>
         <div class="fact"><span class="n">3</span><span class="l">Regions</span></div>
@@ -330,23 +374,23 @@
     <div class="routestrip">
       <div class="leg">
         <div class="place">Sydney</div>
-        <div class="dates">OCT 3 — OCT 6 · 3 nights</div>
+        <div class="dates">Oct 3 to 6, 3 nights</div>
         <div class="move">
           <svg viewBox="0 0 26 12"><path d="M1 6h20m0 0l-5-4m5 4l-5 4" stroke="#f4efe4" stroke-width="1.4" fill="none"/></svg>
-          Then fly north
+          Fly north, booked
         </div>
       </div>
       <div class="leg">
         <div class="place">Port Douglas</div>
-        <div class="dates">OCT 6 — OCT 11 · 5 nights</div>
+        <div class="dates">Oct 6 to 11, 5 nights</div>
         <div class="move">
           <svg viewBox="0 0 26 12"><path d="M1 6h20m0 0l-5-4m5 4l-5 4" stroke="#f4efe4" stroke-width="1.4" fill="none"/></svg>
-          Then fly south
+          Fly south, booked
         </div>
       </div>
       <div class="leg">
-        <div class="place">Melbourne &amp; the Coast</div>
-        <div class="dates">OCT 11 — OCT 16 · 5 nights</div>
+        <div class="place">Melbourne and the coast</div>
+        <div class="dates">Oct 11 to 16, 5 nights</div>
         <div class="move">
           <svg viewBox="0 0 26 12"><path d="M1 6h20" stroke="#bf5a3c" stroke-width="1.4" fill="none"/><circle cx="23" cy="6" r="2.4" fill="#bf5a3c"/></svg>
           Fly home
@@ -359,8 +403,9 @@
 <!-- ============ ARRIVAL NOTE ============ -->
 <div class="wrap">
   <div class="panel reveal" style="margin-top:44px">
-    <h4>Before you read on — one date thing <span class="booked"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>Flights booked</span></h4>
-    <p style="color:var(--ink-soft);font-size:1rem">Your outbound leaves Phoenix <b style="color:var(--ink)">Thu Oct 1, 4:00 pm</b> but lands in Sydney <b style="color:var(--ink)">Sat Oct 3, 6:50 am</b> (via LAX) — the international date line eats a day. So the plan below starts Oct 3, and treats that first morning as a gentle, jet-lagged arrival rather than a sightseeing day. Your flight home leaves <b style="color:var(--ink)">Melbourne Fri Oct 16, 11:00 am</b>, so the whole trip is built to end there — car back and at the airport by ~8 am that morning. Both legs are confirmed on Delta for two.</p>
+    <h4>Flights and the date line <span class="booked"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>Flights &amp; cars booked</span></h4>
+    <p style="color:var(--ink-soft);font-size:1rem">Your outbound flight leaves Phoenix <b style="color:var(--ink)">Thu Oct 1, 4:00 pm</b> and lands in Sydney <b style="color:var(--ink)">Sat Oct 3, 6:50 am</b> via LAX. Crossing the international date line costs you a day, so the plan starts on Oct 3 and keeps that first morning light. The flight home leaves <b style="color:var(--ink)">Melbourne Fri Oct 16, 11:00 am</b>. The car goes back the evening before, and you should be at the terminal by about 8 am. Both international legs are confirmed on Delta for two, the domestic flights (Sydney to Cairns, Cairns to Melbourne) are booked, and so are the rental cars in Cairns and Melbourne.</p>
+    <p style="color:var(--ink-soft);font-size:1rem;margin-top:12px"><b style="color:var(--ink)">Clocks:</b> Sydney and Melbourne switch to daylight saving overnight from Sat Oct 3 to Sun Oct 4, when clocks go forward an hour. Queensland doesn't use daylight saving, so Port Douglas is an hour behind Sydney and Melbourne for your whole stay. Read every flight and tour time in local time.</p>
   </div>
 </div>
 
@@ -371,8 +416,8 @@
       <div class="region-num">01</div>
       <div class="region-title">
         <h2>Sydney</h2>
-        <p class="sub">Ease into the trip on the harbour. No car here — the city runs on ferries and your own two feet, and parking is a tax on the foolish. Base yourself in The Rocks or Circular Quay.</p>
-        <span class="tag sea">Harbour city · 3 nights · no car</span>
+        <p class="sub">You won't need a car in Sydney. Ferries, trains and walking cover everything, and city parking is expensive. The hotel is in The Rocks, a few minutes from Circular Quay.</p>
+        <span class="tag sea">3 nights, no car</span>
       </div>
     </div>
 
@@ -423,12 +468,12 @@
         </div>
         <div class="day-body">
           <h3>Land, then let the harbour wake you up</h3>
-          <p>You're off a brutal flight, so keep it loose. Drop bags (rooms rarely open before mid-afternoon — arrange left-luggage), then do the one walk that fixes jet lag: the harbour foreshore.</p>
+          <p>You'll be tired from the flight, so keep the day easy. Rooms rarely open before mid-afternoon, so leave your bags at the front desk and walk the harbour foreshore. Daylight and walking help with jet lag.</p>
           <ul class="doing">
-            <li>Royal Botanic Garden through to Mrs Macquarie's Point for the postcard Opera House + Bridge line-up</li>
-            <li>Loop back through Circular Quay to The Rocks for an early, easy dinner</li>
+            <li>Royal Botanic Garden to Mrs Macquarie's Point, where the Opera House and Harbour Bridge line up in one view</li>
+            <li>Back through Circular Quay to The Rocks for an early dinner, then a Gelato Messina scoop at the Quay on the walk home</li>
           </ul>
-          <div class="note">Fight the long afternoon nap. Push to a normal bedtime and the rest of the trip's body-clock sorts itself out.</div>
+          <div class="note">Try not to nap for long this afternoon. Staying up until a normal bedtime helps your body clock adjust for the rest of the trip. Clocks go forward an hour tonight, so tomorrow starts an hour earlier than your body expects.</div>
         </div>
       </div>
 
@@ -439,13 +484,19 @@
           <div class="sleep"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-5h6v5"/></svg>Harbour Rocks</div>
         </div>
         <div class="day-body">
-          <h3>The <span class="pin">Manly</span> ferry, then a slow city afternoon</h3>
-          <p>Pick one big outing, not two — cramming Manly and the Bondi-to-Coogee walk into one day turns a holiday into a forced march. The ferry ride itself is half the reason to go north.</p>
-          <ul class="doing">
-            <li>Morning: ferry from Circular Quay to Manly, walk to Shelly Beach, lunch by the water</li>
-            <li>Afternoon: back across the harbour, wander Barangaroo or Surry Hills at your own pace</li>
-          </ul>
-          <div class="note">Saving Bondi–Coogee? It keeps. Swap it in for Manly if you'd rather have the cliff walk — but don't try to do both.</div>
+          <h3>The <span class="pin">Manly</span> ferry and Shelly Beach</h3>
+          <p>A relaxed beach day on your first full day, which is also the morning the clocks go forward. Most of it is flat walking, and you can stop and head back whenever you've had enough.</p>
+          <div class="dd">
+            <h4>Sunday, hour by hour</h4>
+            <div class="r">Circular Quay to Manly and back, about 5 km of walking (more with North Head)</div>
+            <ul class="stops"><li><span class="t">9:00</span><span>Walk to Wharf 3 at Circular Quay for the <b>F1 Manly ferry</b>, about 30 minutes across the harbour. Sit outside on the way over for views of the Opera House, the Harbour Bridge and the heads</span></li><li><span class="t">9:45</span><span>Off at Manly Wharf and along <b>The Corso</b>, the pedestrian street that runs from the harbour to the ocean beach</span></li><li><span class="t">10:00</span><span><b>Manly Beach to Shelly Beach</b> walk along Marine Parade, about 20 minutes. You pass the small Fairy Bower ocean pool, and the water beside the path is Cabbage Tree Bay, a protected aquatic reserve</span></li><li><span class="t">10:30</span><span>Time at <b>Shelly Beach</b>, a sheltered cove that's calmer than the main beach. Swim or snorkel if you've brought gear; the water is around 19°C in early October</span></li><li><span class="t">11:15</span><span>Climb up to <b>North Head</b> for the <b>Fairfax Walk</b> and its lookouts across the harbour to the city skyline. It's a longer walk uphill from Shelly Beach, so a short taxi ride up is fine if you're tired <span class="opt">optional</span></span></li><li><span class="t">12:30</span><span>Lunch (see options below), then gelato on The Corso</span></li><li><span class="t">2:30</span><span>Ferry back to Circular Quay. Spend a slow afternoon in Barangaroo or Surry Hills, or rest at the hotel</span></li><li><span class="t">6:00</span><span>Easy dinner: Spice Alley in Chippendale or Chat Thai in Haymarket, then an early night before the walk</span></li></ul>
+            <div class="know">
+              <div><b>Paying for transport</b>Tap on and off with the same contactless card or phone for every trip. Sydney caps fares per day, and Sundays and public holidays have a lower cap of around AU$10, so the ferry there and back plus a bus later in the day cost about the same as one return trip.</div>
+              <div><b>Lunch in Manly</b><b style="display:inline;font-family:inherit;font-size:inherit">The Boathouse Shelly Beach</b> sits at the end of the walk; it's walk-in only and very busy on weekends, so go before noon. <b style="display:inline;font-family:inherit;font-size:inherit">Hugos</b> on the wharf does pizza and seafood near the ferry. <b style="display:inline;font-family:inherit;font-size:inherit">Cibaria</b>, a hatted beachfront Italian, is the nicer option and worth booking.</div>
+              <div><b>Gelato</b><b style="display:inline;font-family:inherit;font-size:inherit">Anita Gelato</b> at 46 The Corso is the top-rated gelato shop in Manly on Tripadvisor, and the Cibaria team recommends its own pistachio gelato with sea salt.</div>
+              <div><b>Bring</b>Sunscreen, hats and water. The UV is strong in October even when the air feels cool. Swimsuits and a towel if you want to swim at Shelly.</div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -456,41 +507,67 @@
           <div class="sleep"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-5h6v5"/></svg>Harbour Rocks</div>
         </div>
         <div class="day-body">
-          <h3>Blue Mountains — hire a car for the day</h3>
-          <p>The Grand Canyon Track is a stunning 6.3 km rainforest loop (~3–4 hrs) — but it's at Blackheath, not Katoomba, and stitching it to the Three Sisters by train alone is a headache. A one-day car rental (or a small-group tour) unlocks the whole plateau.</p>
-          <ul class="doing">
-            <li>Early start · Grand Canyon Track loop from Evans Lookout in the morning</li>
-            <li>Lunch in Blackheath or Leura</li>
-            <li>Three Sisters at Echo Point, and a section of the Prince Henry Cliff Walk</li>
-          </ul>
-          <div class="note book"><b>Check before you go:</b> Blue Mountains tracks can close for weather, fire danger or maintenance. Look at the official NSW alerts the week prior.</div>
+          <h3>Bondi to Coogee coastal walk</h3>
+          <p>The coastal walk is about 6 km one way, past Bondi, Tamarama, Bronte, Clovelly, Gordons Bay and Coogee. NSW's tourism site puts it at about two hours at a good pace; with swims, detours and lunch it fills a relaxed day. It's mostly paved, but there are steep sections and plenty of stairs. Walking from Bondi toward Coogee is the slightly easier direction.</p>
+          <div class="dd">
+            <h4>Monday, hour by hour</h4>
+            <div class="r">Bondi to Coogee, about 6 km on foot plus buses</div>
+            <ul class="stops"><li><span class="t">8:00</span><span>Bus <b>333</b> from Circular Quay to Bondi Beach, about 40 minutes. It's a public holiday, so buses may run on a Sunday timetable; check the Opal or TripView app</span></li><li><span class="t">8:45</span><span>Breakfast near Hall Street: <b>bills</b> (the original Bondi café, known for its ricotta hotcakes) or one of the cafés on Campbell Parade. Walk along the beachfront to the south end</span></li><li><span class="t">9:30</span><span>Start at <b>Bondi Icebergs</b>, the ocean pool at the south end of the beach. A swim there costs a small entry fee <span class="opt">optional</span></span></li><li><span class="t">9:45</span><span>Around the cliffs to <b>Tamarama</b>, a small, steep cove, about 15 minutes in</span></li><li><span class="t">10:15</span><span><b>Bronte</b>: take the short detour to the Bronte Baths ocean pool and lookout, which the main path skips. Toilets and a café strip here</span></li><li><span class="t">10:45</span><span>Past <b>Waverley Cemetery</b>, built right on the clifftop. Walk the boardwalk along its seaward edge</span></li><li><span class="t">11:15</span><span><b>Clovelly</b>, a long, narrow inlet with calm water. It's the best spot on the walk for a swim or snorkel</span></li><li><span class="t">11:45</span><span><b>Gordons Bay</b>, then over Dunningham Reserve. Leave the paved path for the sandstone near the cliff edge if you want a better view down the coast</span></li><li><span class="t">12:15</span><span>Arrive at <b>Coogee</b>. Lunch, a swim at the beach or Wylie's Baths (paid entry), and a rest on the grass</span></li><li><span class="t">2:30</span><span>Bus <b>373</b> from Coogee back to Circular Quay, about 45 minutes, or a rideshare if you're tired</span></li><li><span class="t">7:00</span><span>Dinner: a good night for your Quay or Bistecca booking. Check they're open on the public holiday</span></li></ul>
+            <div class="know">
+              <div><b>Public holiday crowds</b>Oct 5 is Labour Day in NSW, the last day of a long weekend, so the path and the beaches will be busy by late morning. Starting at Bondi by 9:30 keeps you ahead of most of it. Transport fares fall under the lower holiday cap.</div>
+              <div><b>Ocean pools</b>The route passes several. Icebergs and Wylie's Baths charge entry; Bronte Baths and the Clovelly inlet are free. McIvers Baths, just past Wylie's at Coogee, is for women and children only.</div>
+              <div><b>Food along the way</b>Bondi has the most choice at the start (Gelato Messina is on Hall Street if you want a scoop first). Bronte and Clovelly have cafés and kiosks. Coogee has a strip of cafés and fish-and-chip shops along Arden Street.</div>
+              <div><b>Bring</b>Shoes with grip, since the sandstone and stairs can be slippery. Sunscreen, hats, water, swimsuits and a towel. There's little shade between Bronte and Clovelly.</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
     <!-- SYDNEY EATS -->
     <div class="eats reveal">
-      <div class="eats-head"><span class="k">Where to eat</span><span class="h">Italian, steak &amp; Asian near the Quay</span></div>
+      <div class="eats-head"><span class="k">Restaurants</span><span class="h">Around the Quay and Chinatown</span></div>
+      <p class="eats-key"><span class="bk far">Book weeks ahead</span><span class="bk must">Book ahead</span><span class="bk walk">Walk-in</span></p>
       <div class="eats-grid">
         <div class="eat">
-          <div class="top"><span class="nm">Bistecca</span><span class="rt"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>4.7</span></div>
-          <div class="kind">Florentine steakhouse · The Rocks</div>
-          <div class="blurb">A dry-aged Bistecca alla Fiorentina, hidden entrance, phone-in-a-lockbox policy so you actually talk. The big steak night — book ahead. (Bar-forward, but the food's the point.)</div>
+          <div class="top"><span class="nm">Quay</span><span class="bk far">Book weeks ahead</span></div>
+          <div class="kind">Splurge, tasting menu, Overseas Passenger Terminal</div>
+          <div class="blurb">Peter Gilmore's three-hat set menu (from about AU$305 per person) looks straight across at the Opera House, and the meal ends with his White Coral dessert. Fodor's calls it Sydney's top restaurant for 30 years. Book as soon as you can.</div>
         </div>
         <div class="eat">
-          <div class="top"><span class="nm">Scala Lane</span><span class="rt"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>4.7</span></div>
-          <div class="kind">Italian · laneway · does great mocktails</div>
-          <div class="blurb">Reviewers single out the mocktails and the best gnocchi and tiramisu in the city, in a cosy Wynyard laneway. A relaxed, no-pressure Italian night.</div>
+          <div class="top"><span class="nm">Bistecca</span><span class="bk must">Book ahead</span></div>
+          <div class="kind">Florentine steakhouse, near Wynyard</div>
+          <div class="blurb">Dry-aged bistecca alla Fiorentina behind a hidden entrance, and phones go in a lockbox at the table. The room leans toward wine, but you're there for the steak.</div>
         </div>
         <div class="eat">
-          <div class="top"><span class="nm">Thai 44</span><span class="rt"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>4.7</span></div>
-          <div class="kind">Thai · Chinatown · casual</div>
-          <div class="blurb">Bangkok street-style — huge pad thai and a knockout grapao with runny egg, big portions, cheap. The easy, tasty, no-fuss weeknight.</div>
+          <div class="top"><span class="nm">Chat Thai</span><span class="bk walk">Walk-in, expect a queue</span></div>
+          <div class="kind">Thai, Haymarket</div>
+          <div class="blurb">Big, punchy Thai flavours at fair prices, and the mango sticky rice is the dessert to order. Put your name down and walk around Chinatown while you wait.</div>
         </div>
         <div class="eat">
-          <div class="top"><span class="nm">Khao Soi</span><span class="rt"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>4.4</span></div>
-          <div class="kind">Northern Thai · chicken curry noodles</div>
-          <div class="blurb">Creamy khao soi curry noodles and chicken katsu — a warm, comforting bowl. Come early on weeknights; the queue is real for a reason.</div>
+          <div class="top"><span class="nm">Mamak</span><span class="bk walk">Walk-in, queue moves</span></div>
+          <div class="kind">Malaysian, Chinatown</div>
+          <div class="blurb">Long-running Malaysian spot where the roti canai is stretched in the front window. It also does curries, satay and fried noodles, and it's cheap and fast.</div>
+        </div>
+        <div class="eat">
+          <div class="top"><span class="nm">Din Tai Fung</span><span class="bk walk">Walk-in</span></div>
+          <div class="kind">Taiwanese dumplings, World Square</div>
+          <div class="blurb">Come for the xiao long bao (soup dumplings). It's reliable and quick, which makes it a good dinner for the first jet-lagged nights.</div>
+        </div>
+        <div class="eat">
+          <div class="top"><span class="nm">Spice Alley</span><span class="bk walk">Walk-in</span></div>
+          <div class="kind">Hawker laneway, Chippendale</div>
+          <div class="blurb">A laneway of small Asian kitchens serving laksa, Hainanese chicken rice and pad see ew, with most mains under about AU$15. It pairs well with an afternoon in Surry Hills.</div>
+        </div>
+        <div class="eat">
+          <div class="top"><span class="nm">Scala Lane</span><span class="bk must">Book ahead</span></div>
+          <div class="kind">Italian, Wynyard laneway</div>
+          <div class="blurb">Reviewers single out the gnocchi and tiramisu, and the mocktail list is good. A relaxed Italian night.</div>
+        </div>
+        <div class="eat">
+          <div class="top"><span class="nm">Gelato Messina</span><span class="bk walk">Walk-in</span></div>
+          <div class="kind">Gelato, Circular Quay &amp; around the city</div>
+          <div class="blurb">About 40 house-churned flavours plus weekly specials. The Circular Quay store is a short walk from the hotel, so you could easily go every night.</div>
         </div>
       </div>
     </div>
@@ -504,8 +581,8 @@
       <div class="region-num">02</div>
       <div class="region-title">
         <h2>Port Douglas &amp; the Reef</h2>
-        <p class="sub">The likely highlight. Fly into Cairns, drive the pretty hour north to Port Douglas, and settle in for five nights — close to the best outer reef and the oldest rainforest on earth. One base, no repacking.</p>
-        <span class="tag sea">Tropical north · 5 nights · reef + rainforest</span>
+        <p class="sub">Fly into Cairns, drive an hour north to Port Douglas and stay five nights in one place. The outer reef and the Daintree rainforest are both day trips from here.</p>
+        <span class="tag sea">5 nights, reef and rainforest</span>
       </div>
     </div>
 
@@ -564,8 +641,8 @@
           <div class="sleep"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-5h6v5"/></svg>Oaks Resort</div>
         </div>
         <div class="day-body">
-          <h3>Fly to Cairns, drive to <span class="pin">Port Douglas</span></h3>
-          <p>Pick up the car at Cairns airport and take the coast road north — one of the prettiest hours of driving in the country, rainforest on one side, Coral Sea on the other.</p>
+          <h3>Fly to Cairns, drive to <span class="pin">Port Douglas</span> <span class="booked"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>Booked</span></h3>
+          <p>Flight and rental car are both booked. Pick up the car at Cairns Airport and take the Captain Cook Highway north along the coast, with rainforest on one side and the Coral Sea on the other.</p>
           <ul class="doing">
             <li>Quick stop at Palm Cove if the timing's right</li>
             <li>Settle in; sunset and dinner on Macrossan Street</li>
@@ -580,8 +657,8 @@
         </div>
         <div class="day-body">
           <h3>Outer Great Barrier Reef with Wavelength <span class="booked"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>Booked</span></h3>
-          <p>Locked in for 2 — a snorkel-focused, small-group day on the outer reef, on your first full day so the later days stay free as weather backups.</p>
-          <div class="note"><b>Check-in 8:10 am</b> — it's an early, full day on the water. Keep tonight's dinner low-key and close by (IronBar or Sassi both fit); you'll be sun-and-salt tired.</div>
+          <p>Booked for two. It's a small-group snorkelling day on the outer reef, set early in the stay so the later days can act as weather backups.</p>
+          <div class="note"><b>Check-in 8:10 am.</b> It's a long day on the water, so plan a low-key dinner close by (Sassi, or gelato from Capannina) and save the Salsa or Melaleuca booking for another night.</div>
         </div>
       </div>
 
@@ -611,17 +688,17 @@
           </svg>
         </div>
         <div class="txt">
-          <span class="eyebrow">Choosing your boat</span>
-          <h4>Two snorkel-first operators worth comparing</h4>
-          <p>Both skip scuba to focus on snorkeling and small groups. Compare boat size, number of reef stops, guided snorkeling, the cancellation policy, and whether they offer prescription masks and flotation help.</p>
+          <span class="eyebrow">Your boat</span>
+          <h4>Wavelength is booked, with ABC as backup</h4>
+          <p>Both skip scuba to focus on snorkeling and small groups. If weather cancels Oct 7, ask Wavelength to move you to Oct 10 first; ABC Reef Safaris is the fallback if they're full. Ask about prescription masks and flotation help when you check in.</p>
           <div class="compare">
             <div>
               <div class="name">Wavelength</div>
-              <div class="meta">Marine-biologist guides<br>Outer reef · reef interpretation<br>Strong all-rounder</div>
+              <div class="meta">Marine-biologist guides<br>Outer reef, reef interpretation<br>Booked, Oct 7</div>
             </div>
             <div>
               <div class="name">ABC Reef Safaris</div>
-              <div class="meta">Very small passenger count<br>More intimate, pricier<br>Check availability early</div>
+              <div class="meta">Very small passenger count<br>More intimate, pricier<br>Weather backup option</div>
             </div>
           </div>
         </div>
@@ -634,11 +711,19 @@
         </div>
         <div class="day-body">
           <h3><span class="pin">Daintree</span> &amp; Cape Tribulation</h3>
-          <p>Give the rainforest the whole day — it's the oldest on the planet, and the one place where reef meets jungle at the shoreline.</p>
-          <ul class="doing">
-            <li>Mossman Gorge · the Daintree ferry · rainforest boardwalks · Cape Tribulation</li>
-          </ul>
-          <div class="note">Start early and skip a late-evening plan afterward — tropical roads after dark aren't fun, and wildlife wanders onto them.</div>
+          <p>A full self-drive day in two parts. Mossman Gorge is the southern end of the Daintree, close to Port Douglas. North of the Daintree River ferry, a sealed road winds about 35 km through rainforest to Cape Tribulation, with short boardwalks and beaches along the way. Times below are approximate.</p>
+          <div class="dd">
+            <h4>Thursday, hour by hour</h4>
+            <div class="r">Port Douglas to Cape Tribulation and back, about 230 km</div>
+            <ul class="stops"><li><span class="t">7:30</span><span>Leave Port Douglas. Mossman Gorge Cultural Centre is about 20 km and 22 minutes north</span></li><li><span class="t">8:00</span><span><b>Mossman Gorge.</b> You can't drive or walk to the gorge itself, so park at the Centre and take the electric shuttle (every 15 min from 8 am, $15.50 per adult, unlimited rides that day). Walk the boardwalk and the rainforest circuit; most of the self-guided walks take between 5 and 45 minutes</span></li><li><span class="t">10:00</span><span>Drive north to the <b>Daintree River ferry</b>, about 50 km from Port Douglas. The crossing takes around 5 minutes</span></li><li><span class="t">10:00</span><span><b>Daintree River croc cruise</b> before the ferry, about 1 to 1.25 hours (Solar Whisper and others run from the south bank). Adds time, so drop a boardwalk later if you do it <span class="opt">optional</span></span></li><li><span class="t">10:30</span><span><b>Walu Wugirriga (Mt Alexandra) Lookout</b> at the top of the range, looking back over the river mouth to Snapper Island</span></li><li><span class="t">10:50</span><span><b>Daintree Discovery Centre</b> (paid entry) for the 23 m canopy tower and aerial walkway. If you'd rather skip the fee, the free <b>Jindalba Boardwalk</b> next door has a 700 m short loop</span></li><li><span class="t">12:15</span><span><b>Marrdja Boardwalk</b> at Noah Beach, about 30 minutes through fan palms and mangroves</span></li><li><span class="t">1:00</span><span>Lunch at Cape Tribulation, then the 350 m <b>Kulki</b> walk to the lookout and down onto <b>Cape Tribulation Beach</b>. Add the 1.2 km <b>Dubuji Boardwalk</b> to Myall Beach if you have the energy</span></li><li><span class="t">2:45</span><span>Turn around. Stop at the <b>Daintree Ice Cream Co.</b> on the way south (closes late afternoon)</span></li><li><span class="t">3:45</span><span>Ferry back across the river, home to Port Douglas by about 5, before sunset at roughly 6 pm</span></li></ul>
+            <div class="know">
+              <div><b>Ferry</b>Runs continuously from 5 am to midnight every day. Buy tickets online ahead for a QR code, or pay by EFTPOS or cash at the ferry. A locals' priority lane runs 9 am to 4:30 pm in busy periods, so expect some wait mid-morning.</div>
+              <div><b>Crocodiles and swimming</b>Saltwater crocodiles live in the Daintree River, its creeks and along these beaches. Don't swim at Cape Tribulation or Myall Beach, and stay back from creek edges. Obey the signs at Mossman Gorge, where currents get strong after rain.</div>
+              <div><b>Cassowaries</b>You may see one crossing the road or near the boardwalks. Slow down, keep your distance and never feed them. They're large birds and can injure people.</div>
+              <div><b>Fuel and signal</b>Fill up in Port Douglas or Mossman. There's a service station at Cow Bay north of the ferry, but phone coverage is patchy, so download offline maps before you go.</div>
+            </div>
+          </div>
+          <div class="note">Start early and aim to be back before dark, when wildlife wanders onto the roads. The road is sealed as far as Cape Tribulation, so turn around there. The Bloomfield Track beyond is 4WD-only and most rental agreements don't cover it.</div>
         </div>
       </div>
 
@@ -648,12 +733,20 @@
           <div class="sleep"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-5h6v5"/></svg>Oaks Resort</div>
         </div>
         <div class="day-body">
-          <h3>Atherton Tablelands — waterfall country</h3>
-          <p>The one long-driving day inland (~4+ hrs total behind the wheel), but the payoff is exactly your kind of thing: a string of waterfalls and freshwater swimming holes, cool and green.</p>
-          <ul class="doing">
-            <li>Curtain Fig Tree · Yungaburra · Lake Eacham · Millaa Millaa Falls · a waterfall stop or two more</li>
-          </ul>
-          <div class="note">Worth the drive if swimming under waterfalls sounds good. If you'd rather bank a slow day, this is the one to trade for a beach day instead.</div>
+          <h3>Atherton Tablelands and the waterfalls</h3>
+          <p>This is the long inland driving day, with about 4 to 5 hours behind the wheel in total. The Tablelands sit on a plateau inland from Cairns, cooler and greener than the coast, with crater lakes, dairy farms and a loop of waterfalls near Millaa Millaa. Times below are approximate.</p>
+          <div class="dd">
+            <h4>Friday, hour by hour</h4>
+            <div class="r">Port Douglas to Millaa Millaa and back, about 300 km</div>
+            <ul class="stops"><li><span class="t">7:30</span><span>Leave Port Douglas inland via Mossman, Mount Molloy and Mareeba. Atherton is roughly 1 hr 45 away</span></li><li><span class="t">9:30</span><span><b>Gallo Dairyland</b>, between Atherton and Malanda (open 9 to 5). Watch cheese and chocolate being made through the factory windows, and buy chocolate for later</span></li><li><span class="t">10:30</span><span><b>Curtain Fig Tree</b> near Yungaburra: a strangler fig whose roots hang about 15 m to the ground, with a boardwalk around it. Allow 20 minutes</span></li><li><span class="t">11:00</span><span><b>Lake Eacham</b>, a clear volcanic crater lake. Swim off the main picnic area, or walk the 3 km track around the lake</span></li><li><span class="t">11:00</span><span><b>Yungaburra platypus platform</b> on Peterson Creek. Platypus are most active early and late in the day, so a sighting at midday is luck <span class="opt">optional</span></span></li><li><span class="t">12:45</span><span>Lunch at <b>Mungalli Creek Dairy</b> (open 10 to 4), about 10 minutes from the falls</span></li><li><span class="t">1:45</span><span><b>The Waterfall Circuit</b>, a 17 km sealed loop on Theresa Creek Rd. Start at <b>Millaa Millaa Falls</b>, a short walk down from the car park to a deep, cold pool you can swim in. Then <b>Zillie Falls</b> (viewing platform at the top, no swimming) and <b>Ellinjaa Falls</b> (walk down to the base; look for platypus and turtles). Allow 2 to 3 hours with a swim</span></li><li><span class="t">3:45</span><span>Head back the way you came, home by about 6 pm around sunset</span></li></ul>
+            <div class="know">
+              <div><b>Swimming gear</b>Bring swimsuits, towels and water shoes. The water at Millaa Millaa Falls is cold even in warm weather, and the rocks at the edge are slippery. There are no crocodiles at Lake Eacham or the falls.</div>
+              <div><b>Food timing</b>Gallo's café kitchen serves meals until about 2 pm on weekdays, and Mungalli closes at 4. Pack water and snacks for the circuit, which has no shops.</div>
+              <div><b>Roads</b>The route via Mareeba is the gentler drive. The Gillies Range road south of the Tablelands has over 260 bends and is best avoided if either of you gets carsick. The whole Waterfall Circuit is sealed and fine in a regular car.</div>
+              <div><b>Make it shorter</b>If you'd rather not do the full day, skip Gallo and the platypus stop and go straight to Lake Eacham and the falls. If it rains hard, the waterfalls are more dramatic but the swimming holes can get muddy and fast.</div>
+            </div>
+          </div>
+          <div class="note">Go if swimming under waterfalls appeals. If you'd rather have a slow day, swap this one for a beach day.</div>
         </div>
       </div>
 
@@ -663,10 +756,10 @@
           <div class="sleep"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-5h6v5"/></svg>Oaks Resort</div>
         </div>
         <div class="day-body">
-          <h3>Flex day — reef again, or do nothing at all</h3>
-          <p>Keep this open on purpose. Use it as your weather backup for the reef, or a second, gentler water day, or simply Four Mile Beach and the pool.</p>
+          <h3>Flex day: reef again, or rest</h3>
+          <p>This day is left open on purpose. Use it as the reef weather backup, a gentler second water day, or time at Four Mile Beach and the pool.</p>
           <ul class="doing">
-            <li>Low Isles sailing &amp; snorkel (calmer, island setting) · or reef weather-backup · or a proper resort day</li>
+            <li>Low Isles sailing and snorkel (calmer water around a small island), the reef backup, or a resort day</li>
           </ul>
           <div class="note book"><b>Stinger season note:</b> October edges toward the warmer marine-stinger months (roughly Nov–May). Follow your operator's advice and wear the protective suit when they say so.</div>
         </div>
@@ -675,27 +768,48 @@
 
     <!-- PORT DOUGLAS EATS -->
     <div class="eats reveal">
-      <div class="eats-head"><span class="k">Where to eat</span><span class="h">Macrossan Street, mostly Italian &amp; grill</span></div>
+      <div class="eats-head"><span class="k">Restaurants</span><span class="h">Wharf Street and the Daintree</span></div>
+      <p class="eats-key"><span class="bk far">Book weeks ahead</span><span class="bk must">Book ahead</span><span class="bk walk">Walk-in</span></p>
       <div class="eats-grid">
         <div class="eat">
-          <div class="top"><span class="nm">IronBar</span><span class="rt"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>4.2</span></div>
-          <div class="kind">Steak &amp; grill · lively · live music</div>
-          <div class="blurb">The town's fun grill night — wagyu burgers, steaks, ribs, an easygoing Aussie-pub feel. Non-beef options too. Good for a relaxed, buzzy dinner.</div>
+          <div class="top"><span class="nm">Salsa Bar &amp; Grill</span><span class="bk far">Book well ahead</span></div>
+          <div class="kind">Modern Queensland, Wharf St</div>
+          <div class="blurb">A long-running local favourite with a generous, tropical menu and well-reviewed desserts. Local guides say it books out, so reserve before you fly.</div>
         </div>
         <div class="eat">
-          <div class="top"><span class="nm">Sassi Cucina</span><span class="rt"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>4.5</span></div>
-          <div class="kind">Italian · pasta &amp; roasts</div>
-          <div class="blurb">Locals' favourite for classic Italian — roast chicken, pasta, wood-fired pizza, plus virgin daiquiris on the list. Warm and unpretentious.</div>
+          <div class="top"><span class="nm">Melaleuca</span><span class="bk far">Book well ahead</span></div>
+          <div class="kind">Share plates, Wharf St</div>
+          <div class="blurb">It has held a Good Food Guide chef's hat every year since it opened in 2020. Open-air share plates.</div>
         </div>
         <div class="eat">
-          <div class="top"><span class="nm">La Cucina + Bar</span><span class="rt"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>4.1</span></div>
-          <div class="kind">Italian · pasta &amp; pizza · family-friendly</div>
-          <div class="blurb">Braised beef cheek, orange duck leg, roast chicken and pizza in a leafy setting — reviewers rave over multiple nights. Buttered-noodle simple options for an easy meal too.</div>
+          <div class="top"><span class="nm">Zinc</span><span class="bk must">Book ahead</span></div>
+          <div class="kind">Modern Australian &amp; seafood, Macrossan St</div>
+          <div class="blurb">Diners praise the barramundi, the risotto and the service, and one regular reported more than a dozen visits. A good pick for a slightly special night.</div>
         </div>
         <div class="eat">
-          <div class="top"><span class="nm">Watergate</span><span class="rt"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>4.4</span></div>
-          <div class="kind">Modern · steak, duck &amp; kangaroo</div>
-          <div class="blurb">A pretty tree-lined deck with steak, duck pancakes and kangaroo done well — plus fresh non-alcoholic drinks. The slightly-nicer night out.</div>
+          <div class="top"><span class="nm">Harrisons</span><span class="bk must">Book ahead, splurge</span></div>
+          <div class="kind">Fine dining, Sheraton Grand Mirage</div>
+          <div class="blurb">Run by Michelin-starred chef Spencer Patrick, and the most awarded restaurant in Port Douglas. Dress up a little.</div>
+        </div>
+        <div class="eat">
+          <div class="top"><span class="nm">Jungle Fowl</span><span class="bk must">Book ahead</span></div>
+          <div class="kind">Argentinian wood-fire grill, Wharf St</div>
+          <div class="blurb">Argentinian-style meats cooked over fire, a few doors from Salsa and Melaleuca. Your steak night in the north.</div>
+        </div>
+        <div class="eat">
+          <div class="top"><span class="nm">Sassi Cucina</span><span class="bk must">Book if you can</span></div>
+          <div class="kind">Italian, pasta &amp; roasts</div>
+          <div class="blurb">A locals' favourite for Italian: roast chicken, pasta and wood-fired pizza. Relaxed, and a good choice for the tired night after the reef.</div>
+        </div>
+        <div class="eat">
+          <div class="top"><span class="nm">Capannina</span><span class="bk walk">Walk-in</span></div>
+          <div class="kind">Gelato, Port Douglas</div>
+          <div class="blurb">Homemade Italian gelato, including tropical flavours like soursop and jackfruit, plus cannoli. One reviewer went back every night of their stay.</div>
+        </div>
+        <div class="eat">
+          <div class="top"><span class="nm">Daintree Ice Cream Co.</span><span class="bk walk">Walk-in, daytime only</span></div>
+          <div class="kind">Orchard ice cream, Cape Tribulation Rd</div>
+          <div class="blurb">A cup of four flavours made from fruit grown in the orchard on site. It's open in the daytime only (roughly 9 to 5), so fit it into Oct 8.</div>
         </div>
       </div>
     </div>
@@ -709,8 +823,8 @@
       <div class="region-num">03</div>
       <div class="region-title">
         <h2>Melbourne &amp; the Great Ocean Road</h2>
-        <p class="sub">Fly Cairns to Melbourne direct, spend real time in the city, then take the one southern drive that earns every kilometre — two nights down the coast, two different towns, no backtracking.</p>
-        <span class="tag clay">Southern coast · 5 nights · the good drive</span>
+        <p class="sub">Fly from Cairns to Melbourne, spend two nights in the city, then drive the Great Ocean Road with a night in Apollo Bay and a night in Port Campbell. You drive out along the coast and come back inland, so no road is repeated.</p>
+        <span class="tag clay">5 nights, city and coast drive</span>
       </div>
     </div>
 
@@ -759,8 +873,9 @@
           <div class="sleep"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-5h6v5"/></svg>Vibe Hotel</div>
         </div>
         <div class="day-body">
-          <h3>Fly Cairns → Melbourne</h3>
-          <p>A direct hop (~3.5 hrs) swaps tropics for temperate in an afternoon. Check into the Vibe on Queen St (from 3 pm), no car needed yet — Melbourne is a walking-and-tram town.</p>
+          <h3>Fly Cairns to Melbourne <span class="booked"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>Booked</span></h3>
+          <p>Drop the Cairns rental at the airport before check-in. The direct flight takes about 3.5 hours, and clocks go forward an hour when you land. Check in at the Vibe on Queen St (from 3 pm). You won't need a car in the city, where trams and walking cover everything.</p>
+          <div class="note">Sunday dinner: Supernormal or Chin Chin are both open. Tipo 00 is closed Sundays, so save it for Monday.</div>
         </div>
       </div>
 
@@ -771,12 +886,12 @@
         </div>
         <div class="day-body">
           <h3>A full <span class="pin">Melbourne</span> day</h3>
-          <p>Give the city its due — it rewards wandering more than ticking sights. Coffee is a competitive sport here; lean in.</p>
+          <p>Spend the day walking the city and its neighbourhoods, and plan a gelato stop along the way.</p>
           <ul class="doing">
-            <li>CBD laneways &amp; arcades · Fitzroy or Collingwood · Carlton &amp; Lygon Street · Southbank</li>
-            <li>Long dinner, good wine, better coffee</li>
+            <li>CBD laneways &amp; arcades, Fitzroy or Collingwood, Carlton &amp; Lygon Street, Southbank</li>
+            <li>Dinner on Flinders Lane (Supernormal or Chin Chin), or Carlton with Pidapipo gelato after</li>
           </ul>
-          <div class="note">Queen Victoria Market is closed Mondays — so save it for tomorrow morning on your way to the car.</div>
+          <div class="note">Queen Victoria Market is closed on Mondays, so go tomorrow morning on the way to pick up the car.</div>
         </div>
       </div>
 
@@ -787,11 +902,12 @@
         </div>
         <div class="day-body">
           <h3>Market, then drive to <span class="pin">Apollo Bay</span></h3>
-          <p>Grab the car after a Queen Vic Market breakfast and start the coast road. Today is the surf-coast stretch — take it in stages.</p>
+          <p>Breakfast at Queen Vic Market (open from 6 am on Tuesdays), then collect the rental and start the coast road. Today covers the Surf Coast, in short stages.</p>
           <ul class="doing">
-            <li>Torquay · Bells Beach · the Memorial Arch · Lorne &amp; Teddy's Lookout · Kennett River koalas · Apollo Bay for the night</li>
+            <li>Torquay, Bells Beach, the Memorial Arch, Lorne &amp; Teddy's Lookout, Kennett River koalas, Apollo Bay for the night</li>
+            <li>Food: Chocolaterie &amp; Ice Creamery near Torquay, Co-op fish and chips in Apollo Bay, dinner at Graze (book ahead)</li>
           </ul>
-          <div class="note">Sleep in Apollo Bay, not Lorne — it sets you up far better for the Otways and the Apostles tomorrow.</div>
+          <div class="note">Sleeping in Apollo Bay instead of Lorne puts you closer to the Otways and the Apostles for tomorrow.</div>
         </div>
       </div>
 
@@ -802,11 +918,13 @@
         </div>
         <div class="day-body">
           <h3>Otways rainforest &amp; the Shipwreck Coast</h3>
-          <p>The scenic climax. Rainforest in the morning, the big sea stacks in the golden afternoon light, then sleep close enough to catch them again at dawn.</p>
+          <p>Rainforest in the morning, the big sea stacks in the afternoon, and a bed close enough to see them again at sunrise.</p>
           <ul class="doing">
-            <li>Maits Rest rainforest walk · Cape Otway · Gibson Steps · Twelve Apostles · Loch Ard Gorge · The Razorback · Port Campbell</li>
+            <li>Apollo Bay Bakery scallop pie for breakfast, Maits Rest rainforest walk, Cape Otway, Gibson Steps, Twelve Apostles, Loch Ard Gorge, The Razorback, Port Campbell</li>
+            <li>Early dinner at 12 Rocks on the foreshore, then the Apostles at sunset</li>
           </ul>
-          <div class="note">Staying in Port Campbell means the Apostles at sunset <i>and</i> sunrise, with no rush back to the city in between.</div>
+          <div class="note">Staying in Port Campbell lets you see the Apostles at sunset and again at sunrise without a long drive in between. The hour-by-hour plan is below the map.</div>
+          <div class="note book"><b>Twelve Apostles:</b> pre-booking becomes mandatory from Oct 16, the day after you leave. Check twelveapostles.org.au around Oct 5, when bookings open, in case the changeover affects your visit.</div>
         </div>
       </div>
 
@@ -817,12 +935,12 @@
         </div>
         <div class="day-body">
           <h3>Last coastal sights, inland home</h3>
-          <p>Catch the final viewpoints in morning light, then cut inland via Colac — a faster route back than re-driving the whole coast — and return the car, then check in at the Mantra by the airport for an effortless morning.</p>
+          <p>See the last viewpoints in the morning, then head inland via Colac, which is faster than driving the coast again. Return the car at the airport and check in at the Mantra so the flight morning is easy.</p>
           <ul class="doing">
-            <li>Twelve Apostles at sunrise (if you're up for it) · London Bridge · The Grotto · Bay of Islands</li>
-            <li>Inland to Melbourne · drop the rental at the airport depot · dinner near the hotel</li>
+            <li>Twelve Apostles at sunrise (if you're up for it), London Bridge, The Grotto, Bay of Islands</li>
+            <li>Inland to Melbourne, drop the rental at the airport depot, dinner near the hotel</li>
           </ul>
-          <div class="note">Returning the car this evening (not tomorrow morning) means zero stress before the flight. Confirm your depot's closing hours when you book the rental.</div>
+          <div class="note">Returning the car tonight keeps tomorrow morning simple. Check your depot's closing time or after-hours key drop now.</div>
         </div>
       </div>
 
@@ -833,34 +951,93 @@
         </div>
         <div class="day-body">
           <h3>Home</h3>
-          <p>You're minutes from the terminal at the Mantra, with a free airport shuttle — so the morning's easy. Aim to be at the terminal by ~8:30 am for the 11:00 am departure.</p>
+          <p>The Mantra is minutes from the terminal and has a free airport shuttle. Aim to be at the terminal by about 8:00 am for the 11:00 am international flight.</p>
         </div>
       </div>
     </div>
 
     <!-- MELBOURNE EATS -->
     <div class="eats reveal">
-      <div class="eats-head"><span class="k">Where to eat</span><span class="h">Fitzroy, Carlton, Chinatown &amp; the coast</span></div>
+      <div class="eats-head"><span class="k">Restaurants</span><span class="h">Flinders Lane, Lygon Street &amp; Fitzroy</span></div>
+      <p class="eats-key"><span class="bk far">Book weeks ahead</span><span class="bk must">Book ahead</span><span class="bk walk">Walk-in</span></p>
       <div class="eats-grid">
         <div class="eat">
-          <div class="top"><span class="nm">Cinder</span><span class="rt"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>4.7</span></div>
-          <div class="kind">Josper-grill · Fitzroy North</div>
-          <div class="blurb">Everything cooked over the fire — wagyu, chef's sides, that dill-and-pickle-butter focaccia. A speakeasy vibe behind a pub. The standout grill night.</div>
+          <div class="top"><span class="nm">Supernormal</span><span class="bk must">Book ahead</span></div>
+          <div class="kind">Modern Asian, Flinders Lane</div>
+          <div class="blurb">Andrew McConnell's hatted restaurant, busy most nights. Order the New England lobster roll and the slow-cooked lamb shoulder. Bar seats are kept for walk-ins if you can't get a booking.</div>
         </div>
         <div class="eat">
-          <div class="top"><span class="nm">Johnny, Vince &amp; Sam's</span><span class="rt"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>4.6</span></div>
-          <div class="kind">Italian · Lygon St, Carlton</div>
-          <div class="blurb">Honest, homestyle Italian on the classic Lygon Street strip — arancini, bolognese, meatballs, roast potatoes. Bustling but the queue moves fast.</div>
+          <div class="top"><span class="nm">Chin Chin</span><span class="bk walk">Walk-in only, expect a wait</span></div>
+          <div class="kind">Southeast Asian, Flinders Lane</div>
+          <div class="blurb">Loud and busy since 2011, serving Thai-leaning share plates. Go early (around 5:30) to keep the wait short.</div>
         </div>
         <div class="eat">
-          <div class="top"><span class="nm">Thai Town</span><span class="rt"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>4.7</span></div>
-          <div class="kind">Thai · QV, city centre</div>
-          <div class="blurb">Authentic and lively in the heart of town — pork skewers, papaya salad, pineapple rice. Big portions, quick service. Great casual city dinner.</div>
+          <div class="top"><span class="nm">Tipo 00</span><span class="bk must">Book ahead</span></div>
+          <div class="kind">Italian pasta, Little Bourke St</div>
+          <div class="blurb">House-rolled pasta in a small room. The squid-ink tagliolini is the dish to order, and a few bar stools are kept for walk-ins.</div>
         </div>
         <div class="eat">
-          <div class="top"><span class="nm">Graze &amp; 12 Rocks</span><span class="rt"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>4.6</span></div>
-          <div class="kind">On the road · Apollo Bay &amp; Port Campbell</div>
-          <div class="blurb">Coast nights: Graze in Apollo Bay does steak and kangaroo alongside its seafood, and 12 Rocks in Port Campbell is a casual bay-view spot for burgers and pork belly. Book Graze — set sittings.</div>
+          <div class="top"><span class="nm">Ho Jiak</span><span class="bk must">Book ahead</span></div>
+          <div class="kind">Malaysian, CBD</div>
+          <div class="blurb">The Table Journey guide rates it Melbourne's best Malaysian kitchen. Penang and KL-style noodles, with roti made in the open.</div>
+        </div>
+        <div class="eat">
+          <div class="top"><span class="nm">Cinder</span><span class="bk must">Book ahead</span></div>
+          <div class="kind">Josper grill, Fitzroy North</div>
+          <div class="blurb">Everything is cooked over fire, including wagyu, the sides and a dill-and-pickle-butter focaccia. Your grill night in Melbourne.</div>
+        </div>
+        <div class="eat">
+          <div class="top"><span class="nm">Johnny, Vince &amp; Sam's</span><span class="bk walk">Walk-in, queue moves</span></div>
+          <div class="kind">Italian, Lygon St, Carlton</div>
+          <div class="blurb">Homestyle Italian on Lygon Street: arancini, bolognese and meatballs. It's busy, but the queue moves quickly.</div>
+        </div>
+        <div class="eat">
+          <div class="top"><span class="nm">Pidapipo</span><span class="bk walk">Walk-in</span></div>
+          <div class="kind">Gelato, 299 Lygon St, Carlton</div>
+          <div class="blurb">The founder trained at Carpigiani Gelato University near Bologna, and a chef interviewed by Broadsheet named its pistachio as their go-to. An easy dessert stop after dinner in Carlton.</div>
+        </div>
+        <div class="eat">
+          <div class="top"><span class="nm">Gelato Messina</span><span class="bk walk">Walk-in</span></div>
+          <div class="kind">Gelato, 237 Smith St, Fitzroy</div>
+          <div class="blurb">Messina's Smith Street shop. Expect a line down the street in most weather, and pair it with your walk around Fitzroy.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- COAST EATS -->
+    <div class="eats reveal">
+      <div class="eats-head"><span class="k">On the road</span><span class="h">Great Ocean Road, Oct 13–14</span></div>
+      <p class="eats-key"><span class="bk far">Book weeks ahead</span><span class="bk must">Book ahead</span><span class="bk walk">Walk-in</span></p>
+      <div class="eats-grid">
+        <div class="eat">
+          <div class="top"><span class="nm">Great Ocean Road Chocolaterie &amp; Ice Creamery</span><span class="bk walk">Walk-in</span></div>
+          <div class="kind">Chocolate &amp; ice cream, near Torquay</div>
+          <div class="blurb">First stop on Oct 13. Taste the handmade chocolate and get a scoop before Bells Beach.</div>
+        </div>
+        <div class="eat">
+          <div class="top"><span class="nm">Apollo Bay Fishermen's Co-op</span><span class="bk walk">Walk-in</span></div>
+          <div class="kind">Fish &amp; chips, harbour deck</div>
+          <div class="blurb">Local catch and crisp chips eaten on a deck over the water. Lunch or an easy early dinner on arrival.</div>
+        </div>
+        <div class="eat">
+          <div class="top"><span class="nm">Apollo Bay Bakery</span><span class="bk walk">Walk-in</span></div>
+          <div class="kind">Bakery, Apollo Bay</div>
+          <div class="blurb">Locals rate it highly, and the scallop pie is the thing to order. A good breakfast on Oct 14 before the Otways.</div>
+        </div>
+        <div class="eat">
+          <div class="top"><span class="nm">Graze</span><span class="bk must">Book ahead, set sittings</span></div>
+          <div class="kind">Modern Australian, Apollo Bay</div>
+          <div class="blurb">Chef Julian Toussaint cooks with local produce, including steak, kangaroo and seafood. Your dinner on Oct 13; it's open Tuesday to Saturday from 5:30.</div>
+        </div>
+        <div class="eat">
+          <div class="top"><span class="nm">Chris's Beacon Point</span><span class="bk must">Book ahead</span></div>
+          <div class="kind">Greek &amp; seafood, Otways above Apollo Bay</div>
+          <div class="blurb">Open since 1979, high in the hills above the coast. It's the backup for Oct 13 if Graze is full. Go before dark for the view.</div>
+        </div>
+        <div class="eat">
+          <div class="top"><span class="nm">12 Rocks</span><span class="bk walk">Walk-in</span></div>
+          <div class="kind">Casual, Port Campbell foreshore</div>
+          <div class="blurb">Burgers and pork belly with a view of the bay, and an easy early dinner on Oct 14 before sunset. Forage on the Foreshore nearby is a good daytime option.</div>
         </div>
       </div>
     </div>
@@ -868,8 +1045,8 @@
     <!-- GREAT OCEAN ROAD ROUTE MAP -->
     <div class="map reveal">
       <div class="cap">
-        <span class="t">The Great Ocean Road — plotted</span>
-        <span class="d">Melbourne → Apollo Bay → Port Campbell · Oct 13–15</span>
+        <span class="t">Great Ocean Road route</span>
+        <span class="d">Melbourne to Apollo Bay to Port Campbell, Oct 13–15</span>
       </div>
       <svg viewBox="0 0 1080 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Route map of the Great Ocean Road drive from Melbourne through Apollo Bay to Port Campbell">
         <!-- ocean -->
@@ -881,9 +1058,9 @@
 
         <!-- inland return (Colac shortcut), Oct 15 -->
         <path d="M916 250 C 820 120, 400 96, 150 120" fill="none" stroke="#5a7a5a" stroke-width="2" stroke-dasharray="2 7" opacity="0.85"/>
-        <text class="maplabel dim" x="470" y="86" text-anchor="middle">inland via Colac — the faster road home (Oct 15)</text>
+        <text class="maplabel dim" x="470" y="86" text-anchor="middle">inland via Colac, the faster road home (Oct 15)</text>
 
-        <!-- THE COAST DRIVE (Oct 13–14): Melbourne east → Port Campbell west -->
+        <!-- THE COAST DRIVE (Oct 13–14): Melbourne east  to  Port Campbell west -->
         <path id="gor" d="M150 120 L292 168 L372 168 L470 176 L560 196 L742 230 L820 214 L892 236 L916 250"
               fill="none" stroke="#bf5a3c" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
         <!-- direction chevrons along route -->
@@ -918,17 +1095,17 @@
           <text class="maplabel" x="560" y="216" text-anchor="middle">Kennett River</text>
           <text class="maplabel dim" x="560" y="228" text-anchor="middle">koalas</text>
         </g>
-        <!-- APOLLO BAY — Night 1 -->
+        <!-- APOLLO BAY night 1 -->
         <g>
           <circle cx="742" cy="230" r="7.5" fill="#bf5a3c" stroke="#f4efe4" stroke-width="2.5"/>
-          <text class="mapnight" x="742" y="216" text-anchor="middle">◗ NIGHT 1</text>
+          <text class="mapnight" x="742" y="216" text-anchor="middle">NIGHT 1</text>
           <text class="maplabel" x="742" y="252" text-anchor="middle">APOLLO BAY</text>
           <text class="maplabel dim" x="742" y="264" text-anchor="middle">dinner: Graze</text>
         </g>
         <!-- Otways segment -->
         <g>
           <circle cx="820" cy="214" r="3.5" fill="#5a7a5a"/>
-          <text class="maplabel dim" x="820" y="202" text-anchor="middle">Otways: Maits Rest · Cape Otway</text>
+          <text class="maplabel dim" x="820" y="202" text-anchor="middle">Otways: Maits Rest, Cape Otway</text>
         </g>
         <!-- Twelve Apostles + Loch Ard cluster -->
         <g>
@@ -936,11 +1113,11 @@
           <text class="maplabel" x="892" y="222" text-anchor="middle">Twelve Apostles</text>
           <text class="maplabel dim" x="892" y="250" text-anchor="middle">Loch Ard Gorge</text>
         </g>
-        <!-- PORT CAMPBELL — Night 2 -->
+        <!-- PORT CAMPBELL night 2 -->
         <g>
           <circle cx="916" cy="285" r="7.5" fill="#bf5a3c" stroke="#f4efe4" stroke-width="2.5"/>
           <line x1="916" y1="257" x2="916" y2="278" stroke="#bf5a3c" stroke-width="2" stroke-dasharray="2 3"/>
-          <text class="mapnight" x="916" y="304" text-anchor="middle">◗ NIGHT 2</text>
+          <text class="mapnight" x="916" y="304" text-anchor="middle">NIGHT 2</text>
           <text class="maplabel" x="916" y="318" text-anchor="middle">PORT CAMPBELL</text>
         </g>
       </svg>
@@ -951,38 +1128,59 @@
       </div>
     </div>
 
+
+    <!-- ROAD TRIP PLAYBOOK -->
+    <div class="gor reveal">
+      <div class="eats-head"><span class="k">Road trip</span><span class="h">Hour by hour, Oct 13 to 15</span></div>
+      <p class="gor-intro">Times are approximate. Expect about 3.5 hours of driving on Oct 13, 2.5 on Oct 14 and 3 on Oct 15, with the rest of each day spent at stops. The road between Lorne and Apollo Bay is slow and winding, so keep moving in the morning and take longer stops later in the day.</p>
+      <div class="gor-legs">
+        <div class="gleg"><div class="d">Tue Oct 13</div><div class="r">Melbourne to Apollo Bay, about 200 km</div><ul class="stops"><li><span class="t">7:30</span><span><b>Queen Vic Market</b> breakfast (opens 6 am Tuesdays)</span></li><li><span class="t">9:00</span><span><b>Collect the rental</b> and leave the CBD before traffic builds. Torquay is about 1 hr 20 away</span></li><li><span class="t">10:30</span><span><b>Great Ocean Road Chocolaterie &amp; Ice Creamery</b>, just before Torquay</span></li><li><span class="t">11:00</span><span><b>Bells Beach</b> lookout over the surf break, a 10 min stop</span></li><li><span class="t">11:45</span><span><b>Split Point Lighthouse</b>, Aireys Inlet: clifftop views <span class="opt">optional</span></span></li><li><span class="t">12:15</span><span><b>Memorial Arch</b> at Eastern View, the official start of the road</span></li><li><span class="t">1:00</span><span><b>Lorne</b>: lunch, then <b>Teddy's Lookout</b> for the river-mouth view</span></li><li><span class="t">2:45</span><span><b>Kennett River</b>: walk slowly up Grey River Rd looking for koalas in the gums</span></li><li><span class="t">4:00</span><span><b>Apollo Bay</b>: check in at the Sandpiper (reception until 7 pm) and walk the beach</span></li><li><span class="t">6:00</span><span>Dinner at <b>Graze</b> (opens 5:30, book ahead) or fish and chips from the Co-op</span></li></ul></div>
+        <div class="gleg"><div class="d">Wed Oct 14</div><div class="r">Apollo Bay to Port Campbell, about 130 km</div><ul class="stops"><li><span class="t">8:00</span><span><b>Apollo Bay Bakery</b> for a scallop pie. Fill the tank in town, since fuel is scarce ahead</span></li><li><span class="t">8:45</span><span><b>Maits Rest</b>: 800 m boardwalk loop through giant ferns and myrtle beech, ~30 min</span></li><li><span class="t">9:30</span><span><b>Cape Otway</b>: 12 km dead-end road; watch for koalas in the trees along the way. The Lightstation is paid entry <span class="opt">optional</span></span></li><li><span class="t">11:30</span><span>Through <b>Lavers Hill</b> and down to the coast (~1 hr). Pack a picnic lunch</span></li><li><span class="t">1:00</span><span><b>Gibson Steps</b>: 86 steps down to the beach, Apostles from sea level</span></li><li><span class="t">1:45</span><span><b>Twelve Apostles</b> main lookout for a first look</span></li><li><span class="t">2:30</span><span>Check in at the <b>Loch Ard Motor Inn</b>, Port Campbell</span></li><li><span class="t">3:30</span><span><b>Loch Ard Gorge</b> precinct: the gorge, Razorback, Island Arch, Thunder Cave. Allow 1.5 hrs</span></li><li><span class="t">5:45</span><span>Early dinner at <b>12 Rocks</b> on the foreshore</span></li><li><span class="t">~7:30</span><span><b>Apostles at sunset</b> (sun sets around 7:45). Stay past dusk: little penguins come ashore on the beach below</span></li></ul></div>
+        <div class="gleg"><div class="d">Thu Oct 15</div><div class="r">Port Campbell to Melbourne Airport, about 260 km</div><ul class="stops"><li><span class="t">~6:40</span><span><b>Apostles at sunrise</b>, about 12 min from the motel <span class="opt">optional</span></span></li><li><span class="t">8:00</span><span>Breakfast in Port Campbell, check out</span></li><li><span class="t">9:00</span><span>Heading west: <b>The Arch</b>, <b>London Bridge</b>, <b>The Grotto</b> and <b>Bay of Islands</b>. Each is 5–15 min from the car park</span></li><li><span class="t">11:00</span><span>Turn inland via <b>Timboon</b> (12 Apostles food trail) toward Colac</span></li><li><span class="t">12:30</span><span>Lunch in <b>Colac</b>, then the Princes Hwy and Geelong ring road</span></li><li><span class="t">3:30</span><span>Refuel near the airport, <b>return the car</b> and take the Mantra shuttle</span></li></ul></div>
+      </div>
+
+      <div class="know">
+        <div><b>Twelve Apostles booking from Oct 16</b>A new visitor centre opens Oct 16, and from that day every visitor must pre-book. Your visits (Oct 14–15) fall just before, so no booking should be needed. The booking system goes live Oct 5, so check twelveapostles.org.au that week in case the transition affects the old lookout. Gibson Steps and Loch Ard Gorge aren't affected.</div>
+        <div><b>Roadworks on the way home</b>The coastal road's landslip repairs finished in August, but work continues on the inland roads out of Port Campbell (Cobden, Timboon and Colac–Lavers Hill) until late 2026. Crews work weekdays, so expect some single-lane sections and lower speed limits on Thursday. Timboon–Port Campbell Rd was closed from Sep 16 for about three weeks; if it's still shut, follow the detour via Cobden.</div>
+        <div><b>Driving the road</b>Keep left, and use the pull-over bays to let faster locals pass. Never stop on the road itself for a koala. Wildlife is busiest at dawn and dusk, so take the 12 km between the Apostles and Port Campbell slowly after sunset.</div>
+        <div><b>Fuel &amp; signal</b>Fill up in Apollo Bay. Fuel is sparse through the Otways, and there's only a small stop at Lavers Hill. Phone coverage drops out in the forest, so download offline Google Maps for the whole route before you leave Melbourne.</div>
+        <div><b>Weather</b>October on this coast is roughly 12–20°C, windy and changeable. It can be sunny at Lorne and drizzling at the Apostles. Keep a warm layer and a rain jacket in the car. Check VicTraffic and the VicEmergency app the morning of each drive.</div>
+        <div><b>Rental car</b>Every road on this plan is sealed, so a regular car is fine. Note your depot's closing time for Thursday. If you're running late, the airport depots usually have an after-hours key drop, but confirm that it exists.</div>
+      </div>
+    </div>
+
     <!-- STAY PLAN -->
     <div class="panel reveal">
-      <h4>Your six stays — all booked ✓</h4>
+      <h4>Hotels (all booked)</h4>
       <div class="stay-row">
-        <div class="town">Sydney<small>Oct 3–6 · 3 nts</small></div>
+        <div class="town">Sydney<small>Oct 3–6, 3 nts</small></div>
         <div class="desc"><b>Harbour Rocks Hotel</b> (by Ode Hotels)<span class="booked"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>Booked</span>
-          <span class="stay-meta">34 Harrington St, The Rocks NSW 2000 · +61 2 8220 9999<br>Check-in from 3:00 pm · 2-min walk to the harbour, between Opera House &amp; Bridge · note: heritage building, no elevator</span></div>
+          <span class="stay-meta">34 Harrington St, The Rocks NSW 2000, +61 2 8220 9999<br>Check-in from 3:00 pm, 2-min walk to the harbour, between Opera House &amp; Bridge, note: heritage building, no elevator</span></div>
       </div>
       <div class="stay-row">
-        <div class="town">Port Douglas<small>Oct 6–11 · 5 nts</small></div>
+        <div class="town">Port Douglas<small>Oct 6–11, 5 nts</small></div>
         <div class="desc"><b>Oaks Port Douglas Resort</b><span class="booked"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>Booked</span>
-          <span class="stay-meta">87–109 Port Douglas Rd, Port Douglas QLD 4877 · +61 1300 165 369<br>Check-in from 2:00 pm · reception 24 hrs · pool + swim-up bar · shuttle into town (small charge)</span></div>
+          <span class="stay-meta">87–109 Port Douglas Rd, Port Douglas QLD 4877, +61 1300 165 369<br>Check-in from 2:00 pm, reception 24 hrs, pool + swim-up bar, shuttle into town (small charge)</span></div>
       </div>
       <div class="stay-row">
-        <div class="town">Melbourne<small>Oct 11–13 · 2 nts</small></div>
+        <div class="town">Melbourne<small>Oct 11–13, 2 nts</small></div>
         <div class="desc"><b>Vibe Hotel Melbourne</b><span class="booked"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>Booked</span>
-          <span class="stay-meta">1 Queen St, Melbourne VIC 3000 · +61 3 9958 9100<br>Check-in from 3:00 pm · reception 24 hrs · on Flinders/Queen in the CBD · trams at the door · valet/next-door parking ~$35</span></div>
+          <span class="stay-meta">1 Queen St, Melbourne VIC 3000, +61 3 9958 9100<br>Check-in from 3:00 pm, reception 24 hrs, on Flinders/Queen in the CBD, trams at the door, valet/next-door parking ~$35</span></div>
       </div>
       <div class="stay-row">
-        <div class="town">Apollo Bay<small>Oct 13 · 1 nt</small></div>
-        <div class="desc"><b>Sandpiper Motel</b> — Great Ocean Road<span class="booked"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>Booked</span>
-          <span class="stay-meta">3 Murray St, Apollo Bay VIC 3233 · +61 3 5237 6732<br>Reception 8:30 am–7:00 pm · self check-in if arriving later (key left for you) · short walk to the strip &amp; beach · in-room kitchenette</span></div>
+        <div class="town">Apollo Bay<small>Oct 13, 1 nt</small></div>
+        <div class="desc"><b>Sandpiper Motel</b>, Great Ocean Road<span class="booked"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>Booked</span>
+          <span class="stay-meta">3 Murray St, Apollo Bay VIC 3233, +61 3 5237 6732<br>Reception 8:30 am–7:00 pm, self check-in if arriving later (key left for you), short walk to the strip &amp; beach, in-room kitchenette</span></div>
       </div>
       <div class="stay-row">
-        <div class="town">Port Campbell<small>Oct 14 · 1 nt</small></div>
+        <div class="town">Port Campbell<small>Oct 14, 1 nt</small></div>
         <div class="desc"><b>Loch Ard Motor Inn</b><span class="booked"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>Booked</span>
-          <span class="stay-meta">18 Lord St, Port Campbell VIC 3269 · +61 3 5598 6328<br>Check-in from 2:00 pm · 2-min walk to bay, pub &amp; ice creamery · ~5 min drive to the Twelve Apostles for sunset/sunrise</span></div>
+          <span class="stay-meta">18 Lord St, Port Campbell VIC 3269, +61 3 5598 6328<br>Check-in from 2:00 pm, 2-min walk to bay, pub &amp; ice creamery, about 12 min drive to the Twelve Apostles</span></div>
       </div>
       <div class="stay-row">
-        <div class="town">Melbourne<small>Oct 15 · 1 nt</small></div>
+        <div class="town">Melbourne<small>Oct 15, 1 nt</small></div>
         <div class="desc"><b>Mantra Melbourne Airport</b><span class="booked"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>Booked</span>
-          <span class="stay-meta">2 Trade Park Dr, Tullamarine VIC 3043 · +61 3 9093 6500<br>Check-in from 2:00 pm · free airport shuttle · minutes from the terminal for your 11:00 am flight</span></div>
+          <span class="stay-meta">2 Trade Park Dr, Tullamarine VIC 3043, +61 3 9093 6500<br>Check-in from 2:00 pm, free airport shuttle, minutes from the terminal for your 11:00 am flight</span></div>
       </div>
     </div>
   </div>
@@ -992,21 +1190,21 @@
 <section class="closing">
   <div class="wrap">
     <div class="rule reveal"></div>
-    <h2 class="reveal">Three regions, done deep — and only the roads worth driving.</h2>
+    <h2 class="reveal">Before you fly</h2>
     <div class="checklist">
-      <div class="reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg><span>Lock in the <b>award return for Oct 16</b> before anything else — reward seats can be scarce.</span></div>
-      <div class="reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg><span>Book the <b>outer-reef snorkel day</b> now — October fills fast.</span></div>
-      <div class="reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg><span>Reserve <b>two internal flights</b>: Sydney→Cairns and Cairns→Melbourne.</span></div>
-      <div class="reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg><span>Arrange a <b>day car in Sydney</b> for the Blue Mountains, or a small-group tour.</span></div>
-      <div class="reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg><span>Remember you drive on the <b>left</b> — give the first hour some patience.</span></div>
-      <div class="reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg><span>Check <b>track and market hours</b> the week before — closures and holidays shift.</span></div>
+      <div class="reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg><span>Apply for an <b>Australian ETA</b> for both passports (via the official AustralianETA app) if you haven't already. You can't board without it.</span></div>
+      <div class="reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg><span>Book dinners now: <b>Quay</b> (weeks out), <b>Salsa &amp; Melaleuca</b>, plus Bistecca, Zinc, Supernormal, Tipo 00 and Graze.</span></div>
+      <div class="reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg><span>Re-read every booking in <b>local time</b>, since Queensland is an hour behind Sydney and Melbourne during your trip.</span></div>
+      <div class="reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg><span>Pack <b>swimsuits, reef-safe sunscreen and grippy shoes</b> for the Sydney beach days, the reef and the waterfalls.</span></div>
+      <div class="reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg><span>You drive on the <b>left</b> in Australia, so take the first hour slowly.</span></div>
+      <div class="reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg><span>Check <b>track and market hours</b> the week before, since closures and holidays change them.</span></div>
     </div>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
-    <span class="mono">Sydney · Port Douglas · Melbourne — Oct 3–16 · Planned for two</span>
+    <span class="mono">Sydney, Port Douglas and Melbourne, Oct 3–16, planned for two</span>
   </div>
 </footer>
 
